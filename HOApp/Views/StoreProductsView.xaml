@@ -1,0 +1,29 @@
+﻿<Window x:Class="HOApp.Views.StoreProductsView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HOApp.Views"
+        mc:Ignorable="d"
+        Height="300" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="23" />
+            <RowDefinition Height="166*" />
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" FontSize="14" FontFamily="Calibri" FontWeight="Bold"
+               Content="{Binding Path=Product.Description}"></Label>
+
+        <ListView Grid.Row="1" Name="listViewStoreProducts" 
+                  ItemsSource="{Binding StoreProducts}"
+                  SelectedIndex="0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Store" DisplayMemberBinding="{Binding TheEntity.Store.Description}" Width="150"/>
+                    <GridViewColumn Header="Qty On Hand" DisplayMemberBinding="{Binding TheEntity.QtyOnHand}" Width="100"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>

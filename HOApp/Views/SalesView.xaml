@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="HOApp.Views.SalesView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HOApp.Views"
+        xmlns:help="clr-namespace:HOApp.Help"
+        mc:Ignorable="d"
+        d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="23" />
+            <RowDefinition Height="166*" />
+            <RowDefinition Height="23" />
+            <RowDefinition Height="188*" />
+            <RowDefinition Height="23" />
+            <RowDefinition Height="188*" />
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0">Sales:</Label>
+        <Label Grid.Row="2">Sale Lines:</Label>
+        <Label Grid.Row="4">Tender Lines:</Label>
+
+        <ListView Grid.Row="1" Name="listViewSales" 
+                  ItemsSource="{Binding Sales}"
+                  SelectedIndex="0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Store" DisplayMemberBinding="{Binding TheEntity.Store.Description}" Width="50"/>
+                    <GridViewColumn Header="Register" DisplayMemberBinding="{Binding TheEntity.Register.Description}" Width="50"/>
+                    <GridViewColumn Header="Transaction Time" DisplayMemberBinding="{Binding TheEntity.TransactionTime}" Width="150"/>
+                    <GridViewColumn Header="Sale Amount" DisplayMemberBinding="{Binding TheEntity.SaleAmount, StringFormat=C}" Width="100"/>
+                    <GridViewColumn Header="Net Amount" DisplayMemberBinding="{Binding TheEntity.NetAmount, StringFormat=C}" Width="100"/>
+                    <GridViewColumn Header="Gst Amount" DisplayMemberBinding="{Binding TheEntity.GstAmount, StringFormat=C}" Width="100"/>
+                    <GridViewColumn Header="Customer" DisplayMemberBinding="{Binding TheEntity.Customer.DisplayName}" Width="100"/>
+                    <GridViewColumn Header="Employee" DisplayMemberBinding="{Binding TheEntity.Employee.DisplayName}" Width="100"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <ListView Grid.Row="3" Name="listViewSalelines"
+                  ItemsSource="{Binding ElementName=listViewSales, Path=SelectedItem.TheEntity.Salelines}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Product" DisplayMemberBinding="{Binding Product.Description}" Width="150"/>
+                    <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Price, StringFormat=C}" Width="auto"/>
+                    <GridViewColumn Header="Effective Price" DisplayMemberBinding="{Binding EffPrice, StringFormat=C}" Width="auto"/>
+                    <GridViewColumn Header="Quantity" DisplayMemberBinding="{Binding Quantity}" Width="auto"/>
+                    <GridViewColumn Header="Line Amount" DisplayMemberBinding="{Binding LineAmount, StringFormat=C}" Width="auto"/>
+                    <GridViewColumn Header="Gst Amount" DisplayMemberBinding="{Binding GstAmount, StringFormat=C}" Width="auto"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView Grid.Row="5" Name="listViewTenderlines"
+                  ItemsSource="{Binding ElementName=listViewSales, Path=SelectedItem.TheEntity.Tenderlines}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Tender Type" DisplayMemberBinding="{Binding TenderType.Description}" Width="150"/>
+                    <GridViewColumn Header="Status" DisplayMemberBinding="{Binding Status}" Width="auto"/>
+                    <GridViewColumn Header="TenderValue" DisplayMemberBinding="{Binding TenderValue, StringFormat=C}" Width="auto"/>
+                    <GridViewColumn Header="ChangeGiven" DisplayMemberBinding="{Binding ChangeGiven, StringFormat=C}" Width="auto"/>
+                    <GridViewColumn Header="CashOut" DisplayMemberBinding="{Binding CashOut, StringFormat=C}" Width="auto"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <help:Throbber x:Name="Throbber" Visibility="{Binding ThrobberVisible}"/>
+    </Grid>
+</UserControl>
