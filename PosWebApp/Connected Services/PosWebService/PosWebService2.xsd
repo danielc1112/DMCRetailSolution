@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DataAccess.Entity.Entities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DataAccess.Entity.Entities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8080/PosWebService/PosWebService?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/DataAccess.Entity" />
+  <xs:complexType name="ArrayOfProduct">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Product" nillable="true" type="tns:Product" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProduct" nillable="true" type="tns:ArrayOfProduct" />
+  <xs:complexType name="Product">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/DataAccess.Entity" base="q1:BaseEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Cost" type="xs:float" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Price" type="xs:float" />
+          <xs:element minOccurs="0" name="ProductID" type="xs:int" />
+          <xs:element minOccurs="0" name="Supplier" nillable="true" type="tns:Supplier" />
+          <xs:element minOccurs="0" name="SupplierID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Product" nillable="true" type="tns:Product" />
+  <xs:complexType name="Supplier">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/DataAccess.Entity" base="q2:BaseEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Address" nillable="true" type="tns:Address" />
+          <xs:element minOccurs="0" name="AddressID" type="xs:int" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Mobile" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SupplierID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Supplier" nillable="true" type="tns:Supplier" />
+  <xs:complexType name="Address">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/DataAccess.Entity" base="q3:BaseEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AddressID" type="xs:int" />
+          <xs:element minOccurs="0" name="AddressLine1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AddressLine2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Iso3CountryCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Postcode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Suburb" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Address" nillable="true" type="tns:Address" />
+  <xs:complexType name="ArrayOfCustomer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Customer" nillable="true" type="tns:Customer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCustomer" nillable="true" type="tns:ArrayOfCustomer" />
+  <xs:complexType name="Customer">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/DataAccess.Entity" base="q4:BaseEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Address" nillable="true" type="tns:Address" />
+          <xs:element minOccurs="0" name="AddressID" type="xs:int" />
+          <xs:element minOccurs="0" name="CustomerID" type="xs:int" />
+          <xs:element minOccurs="0" name="CustomerType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Mobile" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Customer" nillable="true" type="tns:Customer" />
+  <xs:complexType name="ArrayOfEmployee">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Employee" nillable="true" type="tns:Employee" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEmployee" nillable="true" type="tns:ArrayOfEmployee" />
+  <xs:complexType name="Employee">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/DataAccess.Entity" base="q5:BaseEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Address" nillable="true" type="tns:Address" />
+          <xs:element minOccurs="0" name="AddressID" type="xs:int" />
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EmployeeID" type="xs:int" />
+          <xs:element minOccurs="0" name="EmployeeTitle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Mobile" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TaxFileNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Employee" nillable="true" type="tns:Employee" />
+  <xs:complexType name="ArrayOfSupplier">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Supplier" nillable="true" type="tns:Supplier" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSupplier" nillable="true" type="tns:ArrayOfSupplier" />
+  <xs:complexType name="Sale">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/DataAccess.Entity" base="q6:BaseEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Customer" nillable="true" type="tns:Customer" />
+          <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Employee" nillable="true" type="tns:Employee" />
+          <xs:element minOccurs="0" name="EmployeeID" type="xs:int" />
+          <xs:element minOccurs="0" name="NetAmount" type="xs:float" />
+          <xs:element minOccurs="0" name="SaleID" type="xs:int" />
+          <xs:element minOccurs="0" name="Salelines" nillable="true" type="tns:ArrayOfSaleline" />
+          <xs:element minOccurs="0" name="StoreID" type="xs:int" />
+          <xs:element minOccurs="0" name="Tenderlines" nillable="true" type="tns:ArrayOfTenderline" />
+          <xs:element minOccurs="0" name="TransactionTime" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Sale" nillable="true" type="tns:Sale" />
+  <xs:complexType name="ArrayOfSaleline">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Saleline" nillable="true" type="tns:Saleline" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSaleline" nillable="true" type="tns:ArrayOfSaleline" />
+  <xs:complexType name="Saleline">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/DataAccess.Entity" base="q7:BaseEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="LineAmount" type="xs:float" />
+          <xs:element minOccurs="0" name="Price" type="xs:float" />
+          <xs:element minOccurs="0" name="Product" nillable="true" type="tns:Product" />
+          <xs:element minOccurs="0" name="ProductID" type="xs:int" />
+          <xs:element minOccurs="0" name="Quantity" type="xs:int" />
+          <xs:element minOccurs="0" name="SaleID" type="xs:int" />
+          <xs:element minOccurs="0" name="SalelineID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Saleline" nillable="true" type="tns:Saleline" />
+  <xs:complexType name="ArrayOfTenderline">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Tenderline" nillable="true" type="tns:Tenderline" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTenderline" nillable="true" type="tns:ArrayOfTenderline" />
+  <xs:complexType name="Tenderline">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/DataAccess.Entity" base="q8:BaseEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CashOut" type="xs:float" />
+          <xs:element minOccurs="0" name="ChangeGiven" type="xs:float" />
+          <xs:element minOccurs="0" name="SaleID" type="xs:int" />
+          <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TenderType" nillable="true" type="tns:TenderType" />
+          <xs:element minOccurs="0" name="TenderTypeID" type="xs:int" />
+          <xs:element minOccurs="0" name="TenderValue" type="xs:float" />
+          <xs:element minOccurs="0" name="TenderlineID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Tenderline" nillable="true" type="tns:Tenderline" />
+  <xs:complexType name="TenderType">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/DataAccess.Entity" base="q9:BaseEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Active" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DisplaySequence" type="xs:int" />
+          <xs:element minOccurs="0" name="TenderTypeID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TenderType" nillable="true" type="tns:TenderType" />
+  <xs:complexType name="Grn">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q10="http://schemas.datacontract.org/2004/07/DataAccess.Entity" base="q10:BaseEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Employee" nillable="true" type="tns:Employee" />
+          <xs:element minOccurs="0" name="EmployeeID" type="xs:int" />
+          <xs:element minOccurs="0" name="GrnID" type="xs:int" />
+          <xs:element minOccurs="0" name="Grnlines" nillable="true" type="tns:ArrayOfGrnline" />
+          <xs:element minOccurs="0" name="NetAmount" type="xs:float" />
+          <xs:element minOccurs="0" name="StoreID" type="xs:int" />
+          <xs:element minOccurs="0" name="Supplier" nillable="true" type="tns:Supplier" />
+          <xs:element minOccurs="0" name="SupplierID" type="xs:int" />
+          <xs:element minOccurs="0" name="TransactionTime" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Grn" nillable="true" type="tns:Grn" />
+  <xs:complexType name="ArrayOfGrnline">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Grnline" nillable="true" type="tns:Grnline" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGrnline" nillable="true" type="tns:ArrayOfGrnline" />
+  <xs:complexType name="Grnline">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/DataAccess.Entity" base="q11:BaseEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Cost" type="xs:float" />
+          <xs:element minOccurs="0" name="GrnID" type="xs:int" />
+          <xs:element minOccurs="0" name="GrnlineID" type="xs:int" />
+          <xs:element minOccurs="0" name="LineAmount" type="xs:float" />
+          <xs:element minOccurs="0" name="Product" nillable="true" type="tns:Product" />
+          <xs:element minOccurs="0" name="ProductID" type="xs:int" />
+          <xs:element minOccurs="0" name="Quantity" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Grnline" nillable="true" type="tns:Grnline" />
+  <xs:complexType name="Stocktake">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q12="http://schemas.datacontract.org/2004/07/DataAccess.Entity" base="q12:BaseEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Employee" nillable="true" type="tns:Employee" />
+          <xs:element minOccurs="0" name="EmployeeID" type="xs:int" />
+          <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StocktakeID" type="xs:int" />
+          <xs:element minOccurs="0" name="StocktakeType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Stocktakelines" nillable="true" type="tns:ArrayOfStocktakeline" />
+          <xs:element minOccurs="0" name="StoreID" type="xs:int" />
+          <xs:element minOccurs="0" name="TransactionTime" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Stocktake" nillable="true" type="tns:Stocktake" />
+  <xs:complexType name="ArrayOfStocktakeline">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Stocktakeline" nillable="true" type="tns:Stocktakeline" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStocktakeline" nillable="true" type="tns:ArrayOfStocktakeline" />
+  <xs:complexType name="Stocktakeline">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q13="http://schemas.datacontract.org/2004/07/DataAccess.Entity" base="q13:BaseEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CountedQty" type="xs:int" />
+          <xs:element minOccurs="0" name="ProductID" type="xs:int" />
+          <xs:element minOccurs="0" name="StocktakeID" type="xs:int" />
+          <xs:element minOccurs="0" name="StocktakelineID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Stocktakeline" nillable="true" type="tns:Stocktakeline" />
+</xs:schema>

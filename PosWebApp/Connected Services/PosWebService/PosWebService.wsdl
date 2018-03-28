@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PosWebService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8080/PosWebService/PosWebService?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8080/PosWebService/PosWebService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8080/PosWebService/PosWebService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DataAccess.Entity.Entities" />
+      <xsd:import schemaLocation="http://localhost:8080/PosWebService/PosWebService?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/DataAccess.Entity" />
+      <xsd:import schemaLocation="http://localhost:8080/PosWebService/PosWebService?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/DataAccess.Help" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPosWebService_GetProducts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProducts" />
+  </wsdl:message>
+  <wsdl:message name="IPosWebService_GetProducts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPosWebService_GetCustomers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomers" />
+  </wsdl:message>
+  <wsdl:message name="IPosWebService_GetCustomers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPosWebService_GetEmployees_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployees" />
+  </wsdl:message>
+  <wsdl:message name="IPosWebService_GetEmployees_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPosWebService_GetSuppliers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSuppliers" />
+  </wsdl:message>
+  <wsdl:message name="IPosWebService_GetSuppliers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSuppliersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPosWebService_UploadSale_InputMessage">
+    <wsdl:part name="parameters" element="tns:UploadSale" />
+  </wsdl:message>
+  <wsdl:message name="IPosWebService_UploadSale_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UploadSaleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPosWebService_UploadGrn_InputMessage">
+    <wsdl:part name="parameters" element="tns:UploadGrn" />
+  </wsdl:message>
+  <wsdl:message name="IPosWebService_UploadGrn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UploadGrnResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPosWebService_UploadStocktake_InputMessage">
+    <wsdl:part name="parameters" element="tns:UploadStocktake" />
+  </wsdl:message>
+  <wsdl:message name="IPosWebService_UploadStocktake_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UploadStocktakeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IPosWebService">
+    <wsdl:operation name="GetProducts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPosWebService/GetProducts" message="tns:IPosWebService_GetProducts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPosWebService/GetProductsResponse" message="tns:IPosWebService_GetProducts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPosWebService/GetCustomers" message="tns:IPosWebService_GetCustomers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPosWebService/GetCustomersResponse" message="tns:IPosWebService_GetCustomers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployees">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPosWebService/GetEmployees" message="tns:IPosWebService_GetEmployees_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPosWebService/GetEmployeesResponse" message="tns:IPosWebService_GetEmployees_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSuppliers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPosWebService/GetSuppliers" message="tns:IPosWebService_GetSuppliers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPosWebService/GetSuppliersResponse" message="tns:IPosWebService_GetSuppliers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadSale">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPosWebService/UploadSale" message="tns:IPosWebService_UploadSale_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPosWebService/UploadSaleResponse" message="tns:IPosWebService_UploadSale_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadGrn">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPosWebService/UploadGrn" message="tns:IPosWebService_UploadGrn_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPosWebService/UploadGrnResponse" message="tns:IPosWebService_UploadGrn_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadStocktake">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPosWebService/UploadStocktake" message="tns:IPosWebService_UploadStocktake_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPosWebService/UploadStocktakeResponse" message="tns:IPosWebService_UploadStocktake_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IPosWebService" type="tns:IPosWebService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetProducts">
+      <soap:operation soapAction="http://tempuri.org/IPosWebService/GetProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomers">
+      <soap:operation soapAction="http://tempuri.org/IPosWebService/GetCustomers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployees">
+      <soap:operation soapAction="http://tempuri.org/IPosWebService/GetEmployees" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSuppliers">
+      <soap:operation soapAction="http://tempuri.org/IPosWebService/GetSuppliers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadSale">
+      <soap:operation soapAction="http://tempuri.org/IPosWebService/UploadSale" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadGrn">
+      <soap:operation soapAction="http://tempuri.org/IPosWebService/UploadGrn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadStocktake">
+      <soap:operation soapAction="http://tempuri.org/IPosWebService/UploadStocktake" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PosWebService">
+    <wsdl:port name="BasicHttpBinding_IPosWebService" binding="tns:BasicHttpBinding_IPosWebService">
+      <soap:address location="http://localhost:8080/PosWebService/PosWebService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

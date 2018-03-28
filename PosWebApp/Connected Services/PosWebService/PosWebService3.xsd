@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DataAccess.Entity" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DataAccess.Entity" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8080/PosWebService/PosWebService?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/DataAccess.Help" />
+  <xs:complexType name="BaseEntity">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/DataAccess.Help" base="q1:NotifyUIBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ErrorList" nillable="true" type="tns:ArrayOfPropertyError" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BaseEntity" nillable="true" type="tns:BaseEntity" />
+  <xs:complexType name="ArrayOfPropertyError">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PropertyError" nillable="true" type="tns:PropertyError" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPropertyError" nillable="true" type="tns:ArrayOfPropertyError" />
+  <xs:complexType name="PropertyError">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/DataAccess.Help" base="q2:NotifyUIBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Added" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Error" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PropertyName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PropertyError" nillable="true" type="tns:PropertyError" />
+</xs:schema>
