@@ -1,0 +1,735 @@
+﻿Installing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Installing service PosWebService...
+Creating EventLog source PosWebService in log Application...
+Rolling back assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Restoring event log to previous state for source PosWebService.
+An exception occurred during the Rollback phase of the System.Diagnostics.EventLogInstaller installer.
+System.Security.SecurityException: The source was not found, but some or all event logs could not be searched.  Inaccessible logs: Security.
+An exception occurred during the Rollback phase of the installation. This exception will be ignored and the rollback will continue. However, the machine might not fully revert to its initial state after the rollback is complete.
+Installing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Installing service PosWebService...
+Service PosWebService has been successfully installed.
+Creating EventLog source PosWebService in log Application...
+Committing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Installing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Installing service PosWebService...
+Creating EventLog source PosWebService in log Application...
+Rolling back assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Restoring event log to previous state for source PosWebService.
+Uninstalling assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+Removing EventLog source PosWebService.
+Service PosWebService is being removed from the system...
+Service PosWebService was successfully removed from the system.
+Installing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Installing service PosWebService...
+Service PosWebService has been successfully installed.
+Creating EventLog source PosWebService in log Application...
+Committing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Uninstalling assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+Removing EventLog source PosWebService.
+Service PosWebService is being removed from the system...
+Service PosWebService was successfully removed from the system.
+Installing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Installing service PosWebService...
+Service PosWebService has been successfully installed.
+Creating EventLog source PosWebService in log Application...
+Committing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Uninstalling assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+Removing EventLog source PosWebService.
+Service PosWebService is being removed from the system...
+Service PosWebService was successfully removed from the system.
+Installing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Installing service PosWebService...
+Service PosWebService has been successfully installed.
+Creating EventLog source PosWebService in log Application...
+Committing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Uninstalling assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+Removing EventLog source PosWebService.
+Service PosWebService is being removed from the system...
+Service PosWebService was successfully removed from the system.
+Installing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Installing service PosWebService...
+Service PosWebService has been successfully installed.
+Creating EventLog source PosWebService in log Application...
+Committing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Uninstalling assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+Removing EventLog source PosWebService.
+Service PosWebService is being removed from the system...
+Service PosWebService was successfully removed from the system.
+Installing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Installing service PosWebService...
+Service PosWebService has been successfully installed.
+Creating EventLog source PosWebService in log Application...
+Committing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Uninstalling assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+Removing EventLog source PosWebService.
+Service PosWebService is being removed from the system...
+Service PosWebService was successfully removed from the system.
+Installing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Installing service PosWebService...
+Service PosWebService has been successfully installed.
+Creating EventLog source PosWebService in log Application...
+Committing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Uninstalling assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+Removing EventLog source PosWebService.
+Service PosWebService is being removed from the system...
+Service PosWebService was successfully removed from the system.
+Installing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Installing service PosWebService...
+Service PosWebService has been successfully installed.
+Creating EventLog source PosWebService in log Application...
+Committing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Uninstalling assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+Removing EventLog source PosWebService.
+Service PosWebService is being removed from the system...
+Service PosWebService was successfully removed from the system.
+Installing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Installing service PosWebService...
+Service PosWebService has been successfully installed.
+Creating EventLog source PosWebService in log Application...
+Committing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Uninstalling assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+Removing EventLog source PosWebService.
+Service PosWebService is being removed from the system...
+Service PosWebService was successfully removed from the system.
+Installing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Installing service PosWebService...
+Service PosWebService has been successfully installed.
+Creating EventLog source PosWebService in log Application...
+Committing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Uninstalling assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+Removing EventLog source PosWebService.
+Service PosWebService is being removed from the system...
+Service PosWebService was successfully removed from the system.
+Installing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Installing service PosWebService...
+Service PosWebService has been successfully installed.
+Creating EventLog source PosWebService in log Application...
+Committing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Uninstalling assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+Removing EventLog source PosWebService.
+Service PosWebService is being removed from the system...
+Service PosWebService was successfully removed from the system.
+Installing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Installing service PosWebService...
+Service PosWebService has been successfully installed.
+Creating EventLog source PosWebService in log Application...
+Committing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Uninstalling assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+Removing EventLog source PosWebService.
+Service PosWebService is being removed from the system...
+Service PosWebService was successfully removed from the system.
+Installing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Installing service PosWebService...
+Service PosWebService has been successfully installed.
+Creating EventLog source PosWebService in log Application...
+Committing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Uninstalling assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+Removing EventLog source PosWebService.
+Service PosWebService is being removed from the system...
+Service PosWebService was successfully removed from the system.
+Installing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Installing service PosWebService...
+Service PosWebService has been successfully installed.
+Creating EventLog source PosWebService in log Application...
+Committing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Uninstalling assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+Removing EventLog source PosWebService.
+Service PosWebService is being removed from the system...
+Service PosWebService was successfully removed from the system.
+Installing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Installing service PosWebService...
+Service PosWebService has been successfully installed.
+Creating EventLog source PosWebService in log Application...
+Committing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Uninstalling assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+Removing EventLog source PosWebService.
+Service PosWebService is being removed from the system...
+Service PosWebService was successfully removed from the system.
+Installing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Installing service PosWebService...
+Service PosWebService has been successfully installed.
+Creating EventLog source PosWebService in log Application...
+Committing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Uninstalling assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+Removing EventLog source PosWebService.
+Service PosWebService is being removed from the system...
+Service PosWebService was successfully removed from the system.
+Attempt to stop service PosWebService.
+Installing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Installing service PosWebService...
+Service PosWebService has been successfully installed.
+Creating EventLog source PosWebService in log Application...
+Committing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Uninstalling assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+Removing EventLog source PosWebService.
+Service PosWebService is being removed from the system...
+Service PosWebService was successfully removed from the system.
+Installing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Installing service PosWebService...
+Service PosWebService has been successfully installed.
+Creating EventLog source PosWebService in log Application...
+Committing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Uninstalling assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+Removing EventLog source PosWebService.
+Service PosWebService is being removed from the system...
+Service PosWebService was successfully removed from the system.
+Installing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Installing service PosWebService...
+Service PosWebService has been successfully installed.
+Creating EventLog source PosWebService in log Application...
+Committing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Uninstalling assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+Removing EventLog source PosWebService.
+Service PosWebService is being removed from the system...
+Service PosWebService was successfully removed from the system.
+Installing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Installing service PosWebService...
+Service PosWebService has been successfully installed.
+Creating EventLog source PosWebService in log Application...
+Committing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Uninstalling assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+Removing EventLog source PosWebService.
+Service PosWebService is being removed from the system...
+Service PosWebService was successfully removed from the system.
+Attempt to stop service PosWebService.
+Installing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Installing service PosWebService...
+Service PosWebService has been successfully installed.
+Creating EventLog source PosWebService in log Application...
+Committing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Uninstalling assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+Removing EventLog source PosWebService.
+Service PosWebService is being removed from the system...
+Service PosWebService was successfully removed from the system.
+Installing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Installing service PosWebService...
+Service PosWebService has been successfully installed.
+Creating EventLog source PosWebService in log Application...
+Committing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Uninstalling assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+Removing EventLog source PosWebService.
+Service PosWebService is being removed from the system...
+Service PosWebService was successfully removed from the system.
+Attempt to stop service PosWebService.
+Installing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Installing service PosWebService...
+Service PosWebService has been successfully installed.
+Creating EventLog source PosWebService in log Application...
+Committing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Installing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Installing service PosWebService...
+Creating EventLog source PosWebService in log Application...
+Rolling back assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Restoring event log to previous state for source PosWebService.
+Uninstalling assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+Removing EventLog source PosWebService.
+Service PosWebService is being removed from the system...
+Service PosWebService was successfully removed from the system.
+Installing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Installing service PosWebService...
+Service PosWebService has been successfully installed.
+Creating EventLog source PosWebService in log Application...
+Committing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Uninstalling assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+Removing EventLog source PosWebService.
+Service PosWebService is being removed from the system...
+Service PosWebService was successfully removed from the system.
+Installing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Installing service PosWebService...
+Creating EventLog source PosWebService in log Application...
+Rolling back assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Restoring event log to previous state for source PosWebService.
+Uninstalling assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+Removing EventLog source PosWebService.
+Warning: The source PosWebService is not registered on the local machine.
+Service PosWebService is being removed from the system...
+Service PosWebService was successfully removed from the system.
+Installing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Installing service PosWebService...
+Creating EventLog source PosWebService in log Application...
+Rolling back assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Restoring event log to previous state for source PosWebService.
+Uninstalling assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+Removing EventLog source PosWebService.
+Warning: The source PosWebService is not registered on the local machine.
+Service PosWebService is being removed from the system...
+Service PosWebService was successfully removed from the system.
+Installing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Installing service PosWebService...
+Creating EventLog source PosWebService in log Application...
+Rolling back assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Restoring event log to previous state for source PosWebService.
+Installing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Installing service PosWebService...
+Service PosWebService has been successfully installed.
+Creating EventLog source PosWebService in log Application...
+Committing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Uninstalling assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+Removing EventLog source PosWebService.
+Service PosWebService is being removed from the system...
+Service PosWebService was successfully removed from the system.
+Installing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Installing service PosWebService...
+Service PosWebService has been successfully installed.
+Creating EventLog source PosWebService in log Application...
+Committing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Uninstalling assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+Removing EventLog source PosWebService.
+Service PosWebService is being removed from the system...
+Service PosWebService was successfully removed from the system.
+Installing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Installing service PosWebService...
+Service PosWebService has been successfully installed.
+Creating EventLog source PosWebService in log Application...
+Committing assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+   logtoconsole = 
+Uninstalling assembly 'C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.InstallLog
+   assemblypath = C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceHost\bin\Debug\PosWebServiceHost.exe
+Removing EventLog source PosWebService.
+Service PosWebService is being removed from the system...
+Service PosWebService was successfully removed from the system.
