@@ -1,0 +1,17 @@
+C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceConsoleClient\bin\Debug\PosWebServiceConsoleClient.exe.config
+C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceConsoleClient\bin\Debug\PosWebServiceConsoleClient.exe
+C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceConsoleClient\bin\Debug\PosWebServiceConsoleClient.pdb
+C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceConsoleClient\bin\Debug\DataAccess.dll
+C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceConsoleClient\bin\Debug\EntityFramework.dll
+C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceConsoleClient\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceConsoleClient\bin\Debug\PosWebService.dll
+C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceConsoleClient\bin\Debug\DataAccess.pdb
+C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceConsoleClient\bin\Debug\DataAccess.dll.config
+C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceConsoleClient\bin\Debug\PosWebService.pdb
+C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceConsoleClient\bin\Debug\PosWebService.dll.config
+C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceConsoleClient\bin\Debug\EntityFramework.xml
+C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceConsoleClient\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceConsoleClient\obj\Debug\PosWebServiceConsoleClient.csprojResolveAssemblyReference.cache
+C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceConsoleClient\obj\Debug\PosWebServiceConsoleClient.csproj.CoreCompileInputs.cache
+C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceConsoleClient\obj\Debug\PosWebServiceConsoleClient.exe
+C:\Users\dcamp\source\repos\DMCRetail\PosWebServiceConsoleClient\obj\Debug\PosWebServiceConsoleClient.pdb
