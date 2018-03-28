@@ -1,0 +1,42 @@
+﻿@model PosWebApp.Models.ReceiveModel
+@{
+    ViewBag.Title = "Goods Received";
+}
+
+<h2>Goods Received</h2>
+
+<div class="table-responsive">
+    <table class="table table-striped table-bordered thead-dark">
+        <thead>
+            <tr>
+                <th style="text-align:left">Supplier</th>
+                <th style="text-align:right">No. Of Items</th>
+                <th style="text-align:right">Net Amount</th>
+                <th style="text-align:right">Transaction Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var grn in Model.grns)
+            {
+            <tr>
+                <td style="text-align:left">
+                    @grn.Supplier.Description
+                </td>
+                <td style="text-align:right">
+                    @grn.Grnlines.Count
+                </td>
+                <td style="text-align:right">
+                    @grn.NetAmount.ToString("c2")
+                </td>
+                <td style="text-align:right">
+                    @grn.TransactionTime
+                </td>
+                <td style="text-align:right">
+                    @Html.ActionLink("Details", "Index", "GrnDetails", new { id = grn.GrnID }, null)
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

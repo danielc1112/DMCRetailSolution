@@ -1,0 +1,801 @@
+﻿@using DataAccess;
+@model PosWebApp.Models.SaleModel
+@{
+    ViewBag.Title = "Selling";
+}
+
+<style>
+    tr.highlight td {
+        background-color: #c1c1c1;
+    }
+
+    tr.voidtext td {
+        color: grey;
+    }
+</style>
+
+<script src="//code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        Reset();
+
+        $("#Quantity,#SelectedProduct").each(function () {
+            $(this).change(function () {
+
+                var qty = $("#Quantity").val();
+                if (isNaN(qty) || (qty < 1)) {
+                    $("#Quantity").val("1");
+                };
+                $("#btnAdd").prop('disabled', $("#SelectedProduct").val() == "");
+                $("#Quantity").focus();
+            });
+        });
+
+        $("#TenderValue,#SelectedTenderType").each(function () {
+            $(this).change(function () {
+
+                var tvalue = $("#TenderValue").val();
+                if (isNaN(tvalue) || (tvalue < 0)) {
+                    $("#TenderValue").val("0");
+                };
+                var dis = ($("#SelectedTenderType").val() == "") || ($("#TenderValue").val() == 0);
+                $("#btnAddTender").prop('disabled', dis);
+                $("#TenderValue").focus();
+            });
+        });
+
+        $("#TenderValue").each(function () {
+            $(this).keyup(function () {
+                var dis = ($("#SelectedTenderType").val() == "") || ($("#TenderValue").val() <= 0);
+                $("#btnAddTender").prop('disabled', dis);
+            });
+        });
+
+        $("#btnAdd").click(function () {
+            AddSaleline();
+            $("#btnAdd").prop('disabled', true);
+        });
+
+        function AddSaleline() {
+            //$("#divProcessing").show();
+            $.ajax({
+                type: "POST",
+                url: "/Sell/AddSaleline",
+                data: '{productID: "' + $("#SelectedProduct").val() + '",quantity: "' + $("#Quantity").val() + '"}',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: OnSuccessSaleline,
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+            //$("#divProcessing").hide();
+        }
+
+        function OnSuccessSaleline(saleline) {
+            //Unhighlight other lines
+            $("#tblBodySaleline").children().removeClass('highlight');
+
+            //Add saleline
+            var salelineDiscount = 0;
+            $("#tblBodySaleline").append(
+                "<tr class='highlight'><td style='display:none'>" + saleline.ProductID +
+                "</td><td style='text-align:left'>" + saleline.Description +
+                "</td><td style='text-align:right'>$" + saleline.Price.toFixed(2) +                
+                "</td><td style='text-align:right'>" + saleline.Quantity +
+                "</td><td style='text-align:right'>$" + saleline.LineAmount.toFixed(2) +
+                "</td><td style='display:none'>$" + saleline.GstAmount.toFixed(2) +
+                "</td><td style='display:none'>" + saleline.GstRate +
+                "</td><td style='display:none'>" + saleline.Status +
+                "</td><td style='display:none'>$" + saleline.EffPrice.toFixed(2) +
+                "</td><td style='text-align:right'>$" + salelineDiscount +
+                "</td></tr>");
+
+            RecalcTotalsAndChange(saleline.LineAmount, saleline.GstAmount, (saleline.Price * saleline.Quantity) - saleline.LineAmount);
+
+            $("#btnDiscount").prop('disabled', false);
+
+            //Reset product selector and qty
+            $("#Quantity").text("1");
+            $("#SelectedProduct").val("");
+            $("#SelectedProduct").focus();
+            $("#btnVoidSaleline").prop('disabled', false);
+        };
+
+        $("#btnAddTender").click(function () {
+            if (($("#SelectedTenderType").val()) != "") {
+                var saleTotal = Number($("#TotalLabel").text().slice(1));
+                var tenderTotal = Number($("#TotalTenderLabel").text().slice(1));
+                var tenderValue = $("#TenderValue").val();
+
+                console.log("SelectedTenderType:" + $("#SelectedTenderType").val());
+                console.log("saleTotal:" + saleTotal + " tenderTotal:" + tenderTotal + " tenderValue:" + tenderValue);
+
+                if (tenderTotal + tenderValue > saleTotal) {
+                    //Use callback function
+                    CanTenderTypeGiveChange(function (result) {
+                        console.log(result);
+                        if (!result) { //tendertype cannot give change
+                            tenderValue = saleTotal - tenderTotal;
+                            $("#TenderValue").val(String(tenderValue >= 0 ? tenderValue : 0));
+                            $("#TenderValue").focus();
+                            alert("You cannot exceed the sale total with this type of tender");
+                        }
+                        else { //tendertype can give change so just add it
+                            AddTenderline();
+                            $("#btnAddTender").prop('disabled', true);
+                        }
+                    });
+                }
+                else {
+                    AddTenderline();
+                    $("#btnAddTender").prop('disabled', true);
+                }
+            }
+
+        });
+
+        function CanTenderTypeGiveChange(cb) {
+            //$("#divProcessing").show();
+            console.log("CT:" + $("#SelectedTenderType").val());
+            $.ajax({
+                type: "POST",
+                url: "/Sell/CanTenderTypeGiveChange",
+                data: '{tendertypeID: "' + $("#SelectedTenderType").val() + '"}',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    if (data.success) {
+                        // server returns true
+                        console.log("CanTenderTypeGiveChange returned true");
+                        cb(true);
+                    } else {
+                        // server returns false
+                        console.log("CanTenderTypeGiveChange returned false");
+                        cb(false);
+                    }
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+            //$("#divProcessing").hide();
+        }
+
+        function AddTenderline() {
+            //$("#divProcessing").show();
+            var saleTotal = Number($("#TotalLabel").text().slice(1));
+            var paidTotal = Number($("#TotalTenderLabel").text().slice(1));
+            $.ajax({
+                type: "POST",
+                url: "/Sell/AddTenderline",
+                data: '{tendertypeID: "' + $("#SelectedTenderType").val() +
+                '",amount: "' + $("#TenderValue").val() + 
+                '",saleTotal: "' + saleTotal +
+                '",paidTotal: "' + paidTotal + '"}',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: OnSuccessTenderline,
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+            //$("#divProcessing").hide();
+        }
+
+        function OnSuccessTenderline(tenderline) {
+            //Unhighlight other lines
+            $("#tblBodyTenderline").children().removeClass('highlight');
+            //Add tenderline
+            $("#tblBodyTenderline").append(
+                "<tr class='highlight'><td style='display:none'>" + tenderline.TenderTypeID +
+                "</td><td class='text-left'>" + tenderline.Description +
+                "</td><td class='text-right'>$" + tenderline.TenderValue.toFixed(2) +
+                "</td><td style='display:none'>$" + tenderline.ChangeGiven.toFixed(2) +
+                "</td><td style='display:none'>" + tenderline.Status +
+                "</td></tr>");
+            //Update total
+            var oldTotal = Number($("#TotalTenderLabel").text().slice(1));
+            var tenderTotal = oldTotal + tenderline.TenderValue;
+            $("#TotalTenderLabel").text("$" + tenderTotal.toFixed(2));
+
+            RecalcChange();
+
+            //Reset tender selector and amount
+            $("#TenderValue").val("0");
+            $("#SelectedTenderType").val("");
+            $("#SelectedTenderType").focus();
+            $("#btnVoidTenderline").prop('disabled', false);
+        };
+        
+        $("#btnFinalise").click(function () {
+            FinaliseSale();
+        });
+
+        function FinaliseSale() {
+            //$("#divProcessing").show();
+            var saleGstAmount = 0;
+
+            var salelines = [];
+            var table = document.getElementById("tblSaleline");
+            for (var i = 1, row; row = table.rows[i]; i++) {
+                if (String(row.cells[7].innerHTML) != "V") { //if not void
+                    var price = String(row.cells[2].innerHTML);
+                    var lAmount = String(row.cells[4].innerHTML);
+                    var lGstAmount = String(row.cells[5].innerHTML);
+                    var lGstRate = String(row.cells[6].innerHTML);
+                    var saleline = {
+                        ProductID: Number(row.cells[0].innerHTML),
+                        Price: Number(price.slice(1)),
+                        EffPrice: Number(price.slice(1)),
+                        Quantity: Number(row.cells[3].innerHTML),
+                        LineAmount: Number(lAmount.slice(1)),
+                        GstRate: Number(lGstRate),
+                        GstAmount: Number(lGstAmount.slice(1)),
+                        Status: "A"
+                    }
+                    saleGstAmount += saleline.GstAmount;
+                    salelines.push(saleline);
+                }
+            }
+
+            var tenderlines = [];
+            var table = document.getElementById("tblTenderline");
+            for (var i = 1, row; row = table.rows[i]; i++) {
+                if (String(row.cells[4].innerHTML) != "V") { //if not void
+                    var tValue = String(row.cells[2].innerHTML);
+                    var tChangeGiven = String(row.cells[3].innerHTML);
+                    var tenderline = {
+                        Status: "A",
+                        TenderTypeID: Number(row.cells[0].innerHTML),
+                        TenderValue: Number(tValue.slice(1)),
+                        ChangeGiven: Number(tChangeGiven.slice(1)),
+                        CashOut: 0
+                    }
+                    tenderlines.push(tenderline);
+                }
+            }
+
+            var nAmount = String(document.getElementById("TotalLabel").innerHTML);
+            var sale = {
+                EmployeeID: 1,
+                StoreID: 1,
+                RegisterID: 1,
+                NetAmount: nAmount.slice(1),
+                GstAmount: saleGstAmount,
+                Salelines: salelines,
+                Tenderlines: tenderlines
+            };
+
+            var customerID = Number($("#SelectedCustomer").val());
+            if (customerID != 0) {
+                sale.CustomerID = customerID;
+            }                
+
+            $.ajax({
+                type: "POST",
+                url: "/Sell/FinaliseSale",
+                data: JSON.stringify(sale),
+                contentType: "application/json; charset=utf-8",
+                dataType: "html",
+                success: OnSuccessSale,
+                failure: function (response) {
+                    console.log("failure:" + response.responseText);
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    console.log("error:" + response.responseText);
+                    alert(response.responseText);
+                }
+            });
+            //$("#divProcessing").hide();
+        }
+
+        function OnSuccessSale(result) {
+            Reset();         
+        };
+
+        $('#tblTenderline').on('click', 'tbody tr', function (event) {
+            $(this).addClass('highlight').siblings().removeClass('highlight'); //highlight selected row
+            $("#btnVoidTender").prop('disabled', $(this).hasClass('voidtext'));
+        });
+
+        $("#btnVoidTender").click(function () {
+            VoidTender();
+            $("#btnVoidTender").prop('disabled', true);
+        });
+
+        function VoidTender() {
+            //cycle through tender rows to find ID, then change status and style of row to grey text
+            var table = document.getElementById("tblTenderline");
+            for (var i = 1, row; row = table.rows[i]; i++) {
+                if ($(row).hasClass('highlight')) {
+                    row.cells[4].innerHTML = "V";
+                    $(row).addClass('voidtext');
+
+                    var voidedTenderValue = Number((String(row.cells[2].innerHTML)).slice(1));
+
+                    //reduce tender total
+                    var oldTotal = Number($("#TotalTenderLabel").text().slice(1));
+                    var tenderTotal = oldTotal - voidedTenderValue;
+                    $("#TotalTenderLabel").text("$" + tenderTotal.toFixed(2));
+
+                    RecalcChange();
+
+                    break;
+                }
+            }
+        }
+
+        $('#tblSaleline').on('click', 'tbody tr', function (event) {
+            $(this).addClass('highlight').siblings().removeClass('highlight'); //highlight selected row
+            var voided = $(this).hasClass('voidtext');
+            DisableForVoided(voided);
+        });
+
+        $("#btnVoidSaleline").click(function () {
+            VoidSaleline();
+            DisableForVoided(true);
+        });
+
+        function DisableForVoided(voided) {
+            $("#btnVoidSaleline").prop('disabled', voided);
+            $("#btnDiscountLine").prop('disabled', voided);
+            $("#btnDiscountLinePercent").prop('disabled', voided);
+            $("#btnDiscountLineAmount").prop('disabled', voided);
+            var DiscountType = $("#DiscountLabel").text();
+            var LineDiscount = (DiscountType == "Line % Off") || (DiscountType == "Line $ Off");
+            $("#btnDiscountApply").prop('disabled', voided && LineDiscount);
+        }
+
+        function VoidSaleline() {
+            //cycle through tender rows to find ID, then change status and style of row to grey text
+            var table = document.getElementById("tblSaleline");
+            for (var i = 1, row; row = table.rows[i]; i++) {
+                if ($(row).hasClass('highlight')) {
+                    row.cells[7].innerHTML = "V";
+                    $(row).addClass('voidtext');
+
+                    var voidedLineAmount = Number((String(row.cells[4].innerHTML)).slice(1));
+                    var voidedGstAmount = Number((String(row.cells[5].innerHTML)).slice(1));
+                    var voidedqty = Number(String(row.cells[3].innerHTML));
+                    var voidedprice = Number((String(row.cells[2].innerHTML)).slice(1));
+                    var voidedDiscountAmount = voidedLineAmount - (voidedqty * voidedprice);
+
+                    RecalcTotalsAndChange(-voidedLineAmount, -voidedGstAmount, -voidedDiscountAmount);
+
+                    break;
+                }
+            }
+        }
+
+        function RecalcTotalsAndChange(LineAmountDiff, GstAmountDiff, DiscountDiff) {
+            var oldSaleTotal = Number($("#TotalLabel").text().slice(1));
+            var saleTotal = oldSaleTotal + Number(LineAmountDiff);
+            $("#TotalLabel").text("$" + saleTotal.toFixed(2));
+            $("#TotalLabelT").text("$" + saleTotal.toFixed(2));
+
+            var oldGstTotal = Number($("#TotalGstLabel").text().slice(1));
+            var gstTotal = oldGstTotal + Number(GstAmountDiff);
+            $("#TotalGstLabel").text("$" + gstTotal.toFixed(2));
+            $("#TotalGstLabelT").text("$" + gstTotal.toFixed(2));
+
+            var oldDiscountTotal = Number($("#TotalDiscountLabel").text().slice(1));
+            var discountTotal = oldDiscountTotal - Number(DiscountDiff);
+            $("#TotalDiscountLabel").text("$" + discountTotal.toFixed(2));
+
+            RecalcChange();
+        }
+
+        function RecalcChange() {
+            var tenderTotal = Number($("#TotalTenderLabel").text().slice(1));
+            var changeGiven = tenderTotal - Number($("#TotalLabel").text().slice(1));
+            if (changeGiven > 0) {
+                $("#ChangeGivenLabel").text("$" + changeGiven.toFixed(2));
+            }
+            else
+                $("#ChangeGivenLabel").text("$0");
+
+            var sellTotal = Number($("#TotalLabel").text().slice(1));
+            $("#btnFinalise").prop('disabled', tenderTotal < sellTotal);
+        }
+
+        $("#btnDiscount").click(function () {
+            $("#btnVoidSaleline").hide();
+            $("#btnDiscount").hide();
+            ShowFirstDiscountMenu();
+        });
+
+        $("#btnDiscountBack").click(function () {
+            HideFirstDiscountMenu();
+            $("#btnVoidSaleline").fadeIn("slow");
+            $("#btnDiscount").fadeIn("slow");
+        });
+
+        $("#btnDiscountSale").click(function () {
+            HideFirstDiscountMenu();
+            ShowSaleDiscountMenu();
+        });
+
+        $("#btnDiscountSaleBack").click(function () {
+            HideSaleDiscountMenu();
+            ShowFirstDiscountMenu();
+        });
+
+        $("#btnDiscountLine").click(function () {
+            HideFirstDiscountMenu();
+            ShowLineDiscountMenu();
+        });
+
+        $("#btnDiscountLineBack").click(function () {
+            HideLineDiscountMenu();
+            ShowFirstDiscountMenu();
+        });
+
+        $("#btnDiscountSalePercent").click(function () {
+            HideSaleDiscountMenu();
+            ShowDiscountInput("Sale % Off");
+        });
+
+        $("#btnDiscountSaleAmount").click(function () {
+            HideSaleDiscountMenu();
+            ShowDiscountInput("Sale $ Off");
+        });
+
+        $("#btnDiscountLinePercent").click(function () {
+            HideLineDiscountMenu();
+            ShowDiscountInput("Line % Off");
+        });
+
+        $("#btnDiscountLineAmount").click(function () {
+            HideLineDiscountMenu();
+            ShowDiscountInput("Line $ Off");
+        });
+
+        function ShowSaleDiscountMenu() {
+            $("#btnDiscountSaleBack").fadeIn("slow");
+            $("#btnDiscountSalePercent").fadeIn("slow");
+            $("#btnDiscountSaleAmount").fadeIn("slow");
+        }
+
+        function HideSaleDiscountMenu() {
+            $("#btnDiscountSaleBack").hide();
+            $("#btnDiscountSalePercent").hide();
+            $("#btnDiscountSaleAmount").hide();
+        }
+
+        function ShowLineDiscountMenu() {
+            $("#btnDiscountLineBack").fadeIn("slow");
+            $("#btnDiscountLinePercent").fadeIn("slow");
+            $("#btnDiscountLineAmount").fadeIn("slow");
+        }
+
+        function HideLineDiscountMenu() {
+            $("#btnDiscountLineBack").hide();
+            $("#btnDiscountLinePercent").hide();
+            $("#btnDiscountLineAmount").hide();
+        }
+
+        function ShowFirstDiscountMenu() {
+            $("#btnDiscountBack").fadeIn("slow");
+            $("#btnDiscountSale").fadeIn("slow");
+            $("#btnDiscountLine").fadeIn("slow");
+        }
+
+        function HideFirstDiscountMenu() {
+            $("#btnDiscountBack").hide();
+            $("#btnDiscountSale").hide();
+            $("#btnDiscountLine").hide();
+        }
+
+        function ShowDiscountInput(discountLabelText) {
+            $("#btnDiscountInputBack").fadeIn("slow");
+            $("#DiscountLabel").text(discountLabelText);
+            $("#DiscountLabel").fadeIn("slow");
+            $("#DiscountInput").fadeIn("slow");
+            $("#btnDiscountApply").fadeIn("slow");
+            $("#DiscountInput").val("");
+            $("#DiscountInput").focus();
+        }
+
+        $("#btnDiscountInputBack").click(function () {
+            $("#btnDiscountInputBack").hide();
+            $("#DiscountLabel").hide();
+            $("#DiscountInput").hide();
+            $("#btnDiscountApply").hide();
+
+            var DiscountType = $("#DiscountLabel").text();
+            if ((DiscountType == "Sale % Off") || (DiscountType == "Sale $ Off")) {
+                ShowSaleDiscountMenu();
+            }
+            else if ((DiscountType == "Line % Off") || (DiscountType == "Line $ Off")) {
+                ShowLineDiscountMenu();
+            }
+        });
+
+        $("#btnDiscountApply").click(function () {
+            var DiscountType = $("#DiscountLabel").text();
+            var DiscountInput = $("#DiscountInput").val();
+            var TotalLineAmountDiff = 0;
+            var TotalGstAmountDiff = 0;
+            var table = document.getElementById("tblSaleline");
+            var updateTotals = false;
+
+            if ((DiscountType == "Sale % Off") || (DiscountType == "Sale $ Off")) {
+                var NoOfSaleLines = 0;
+                for (var i = 1, row; row = table.rows[i]; i++) {
+                    if (row.cells[7].innerHTML != "V") {
+                        NoOfSaleLines++;
+                    }
+                }
+                if (NoOfSaleLines > 0)
+                {
+                    updateTotals = true;
+                }
+                var saleTotal = Number($("#TotalLabel").text().slice(1));
+
+                for (var i = 1, row; row = table.rows[i]; i++) {
+                    if (row.cells[7].innerHTML != "V") {
+                        var LineAmount = Number((String(row.cells[4].innerHTML)).slice(1));
+                        var LineGstAmount = Number((String(row.cells[5].innerHTML)).slice(1));
+                        var newLineAmount = LineAmount;
+
+                        if (DiscountType == "Sale % Off") {
+                            newLineAmount = LineAmount * ((100 - DiscountInput) / 100);
+                        }
+                        else if (DiscountType == "Sale $ Off") {
+                            //The amount must be apportioned across all salelines
+                            var portion = LineAmount / saleTotal;
+                            newLineAmount = LineAmount - (portion * DiscountInput);
+                        }
+
+                        var gstRate = Number(String(row.cells[6].innerHTML));
+                        var newLineGstAmount = (gstRate / 100) * newLineAmount;
+
+                        var qty = Number(String(row.cells[3].innerHTML));
+                        var newEffPrice = (newLineAmount / qty);
+                        
+                        row.cells[8].innerHTML = "$" + newEffPrice.toFixed(2);
+                        row.cells[4].innerHTML = "$" + newLineAmount.toFixed(2);
+                        row.cells[5].innerHTML = "$" + newLineGstAmount.toFixed(2);
+                        row.cells[9].innerHTML = "$" + (LineAmount - newLineAmount).toFixed(2);
+                        TotalLineAmountDiff += (newLineAmount.toFixed(2) - LineAmount);
+                        TotalGstAmountDiff += (newLineGstAmount.toFixed(2) - LineGstAmount);
+                    }
+                }
+            }
+            else if (DiscountType == "Line % Off") {
+                for (var i = 1, row; row = table.rows[i]; i++) {
+                    if ($(row).hasClass('highlight')) {
+                        var LineAmount = Number((String(row.cells[4].innerHTML)).slice(1));
+                        var LineGstAmount = Number((String(row.cells[5].innerHTML)).slice(1));
+                        var newLineAmount = LineAmount * ((100 - DiscountInput) / 100);
+
+                        var gstRate = Number(String(row.cells[6].innerHTML));
+                        var newLineGstAmount = (gstRate / 100) * newLineAmount;
+                        var qty = Number(String(row.cells[3].innerHTML));
+                        var newEffPrice = (newLineAmount / qty);
+
+                        row.cells[8].innerHTML = "$" + newEffPrice.toFixed(2);
+                        row.cells[4].innerHTML = "$" + newLineAmount.toFixed(2);
+                        row.cells[5].innerHTML = "$" + newLineGstAmount.toFixed(2);
+                        row.cells[9].innerHTML = "$" + (LineAmount - newLineAmount).toFixed(2);
+                        TotalLineAmountDiff = (newLineAmount.toFixed(2) - LineAmount);
+                        TotalGstAmountDiff = (newLineGstAmount.toFixed(2) - LineGstAmount);
+                        updateTotals = true;
+                        break;
+                    }
+                }
+            }
+            else if (DiscountType == "Line $ Off") {
+                for (var i = 1, row; row = table.rows[i]; i++) {
+                    if ($(row).hasClass('highlight')) {
+                        var LineAmount = Number((String(row.cells[4].innerHTML)).slice(1));
+                        var LineGstAmount = Number((String(row.cells[5].innerHTML)).slice(1));
+                        newLineAmount = LineAmount - DiscountInput;
+
+                        var gstRate = Number(String(row.cells[6].innerHTML));
+                        var newLineGstAmount = (gstRate / 100) * newLineAmount;
+                        var qty = Number(String(row.cells[3].innerHTML));
+                        var newEffPrice = (newLineAmount / qty);
+
+                        row.cells[8].innerHTML = "$" + newEffPrice.toFixed(2);
+                        row.cells[4].innerHTML = "$" + newLineAmount.toFixed(2);
+                        row.cells[5].innerHTML = "$" + newLineGstAmount.toFixed(2);
+                        row.cells[9].innerHTML = "$" + (LineAmount - newLineAmount).toFixed(2);
+                        TotalLineAmountDiff = (newLineAmount.toFixed(2) - LineAmount);
+                        TotalGstAmountDiff = (newLineGstAmount.toFixed(2) - LineGstAmount);
+                        updateTotals = true;
+                        break;
+                    }
+                }
+            }
+
+            if (updateTotals) {
+                RecalcTotalsAndChange(TotalLineAmountDiff.toFixed(2), TotalGstAmountDiff.toFixed(2), TotalLineAmountDiff.toFixed(2));
+
+                $("#btnDiscountInputBack").hide();
+                $("#DiscountLabel").hide();
+                $("#DiscountInput").hide();
+                $("#btnDiscountApply").hide();
+
+                $("#btnVoidSaleline").fadeIn("slow");
+                $("#btnDiscount").fadeIn("slow");
+            }
+            else if ((DiscountType == "Sale % Off") || (DiscountType == "Sale $ Off")) {
+                alert("To apply this discount, the sale must contain valid sale lines");
+            }
+            else {
+                alert("To apply this discount, please select a valid sale line");
+            }
+        });
+
+        function Reset() {
+            $("#SelectedProduct").focus();
+
+            $("#btnAdd").prop('disabled', true);
+            $("#btnAddTender").prop('disabled', true);
+            $("#btnFinalise").prop('disabled', true);
+            $("#btnVoidTender").prop('disabled', true);
+            $("#btnVoidSaleline").prop('disabled', true);
+            $("#btnDiscount").prop('disabled', true);
+
+            $("#SelectedCustomer").val("");
+
+            $("#TotalLabel").text("$0");
+            $("#TotalLabelT").text("$0");
+            $("#TotalGstLabel").text("$0");
+            $("#TotalGstLabelT").text("$0");
+            $("#TotalTenderLabel").text("$0");
+
+            $("#tblBodySaleline").empty();
+            $("#tblBodyTenderline").empty();
+
+            $('.nav-tabs a[href="#productstab"]').tab('show');
+
+            //Show Userlogin modal
+            //$("#userLoginModal").modal();
+        }
+    });
+
+</script>
+
+<h2>Selling</h2>
+
+<br />
+
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#productstab">Products</a></li>
+    <li><a data-toggle="tab" href="#tendertab">Tender</a></li>
+</ul>
+
+<div class="tab-content">
+    <div id="productstab" class="tab-pane fade in active">
+        <br />
+        <span style="display:inline-block;">
+            @Html.DropDownListFor(m => m.SelectedProduct, Model.prodSelectList, "Choose Product...", new { @class = "form-control" })
+        </span>
+        <span style="display:inline-block;">
+            @Html.Label("X", "X", new { @style = "margin-left: 20px; padding:6px 0px; text-align:right" })
+        </span>
+        <span style="display:inline-block; width:60px; margin-right: 7px; margin-left: 5px;">
+            @Html.TextBoxFor(m => m.Quantity, Model.Quantity, new { @class = "form-control", @id = "Quantity" })
+        </span>
+        <span style="display:inline-block;">
+            <button id="btnAdd" value="Add" class="btn btn-primary">Add</button>
+        </span>
+        <div style="float: right">
+            @Html.DropDownListFor(m => m.SelectedCustomer, Model.customerSelectList, "Choose Customer...", new { @class = "form-control" })
+        </div>
+
+        <br />
+        <br />
+
+        <div class="table-responsive">
+            <table id="tblSaleline" class="table table-bordered thead-dark">
+                <thead>
+                    <tr>
+                        <th style="display:none">ProductID</th>
+                        <th style="text-align:left">Description</th>
+                        <th style="text-align:right">Price</th>
+                        <th style="text-align:right">Quantity</th>
+                        <th style="text-align:right">Amount</th>
+                        <th style="display:none">GstAmount</th>
+                        <th style="display:none">GstRate</th>
+                        <th style="display:none">Status</th>
+                        <th style="display:none">EffPrice</th>
+                        <th style="text-align:right">Discount</th>
+                    </tr>
+                </thead>
+                <tbody id="tblBodySaleline"></tbody>
+            </table>
+        </div>
+        <p style="text-align: right; font-weight: bold; font-size: 150%;">Total: <span id="TotalLabel">$0</span></p>
+        <p style="text-align: right; font-weight: bold; font-size: 150%;">Gst: <span id="TotalGstLabel">$0</span></p>
+        <p style="text-align: right; font-weight: bold; font-size: 150%;">Discount: <span id="TotalDiscountLabel">$0</span></p>
+        <button id="btnVoidSaleline" class="btn btn-success btn-lg" style="float:left">Void Product</button>
+        <span><button id="btnDiscount" class="btn btn-success btn-lg" style="float:left; margin-left:5px;">Discount</button></span>
+        <span><button id="btnDiscountBack" class="btn btn-success btn-lg" style="float:left; margin-left:5px; display:none;">Back</button></span>
+        <span><button id="btnDiscountSale" class="btn btn-success btn-lg" style="float:left; margin-left:5px; display:none;">Sale Discount</button></span>
+        <span><button id="btnDiscountLine" class="btn btn-success btn-lg" style="float:left; margin-left:5px; display:none;">Line Discount</button></span>
+        <span><button id="btnDiscountSaleBack" class="btn btn-success btn-lg" style="float:left; margin-left:5px; display:none;">Back</button></span>
+        <span><button id="btnDiscountSalePercent" class="btn btn-success btn-lg" style="float:left; margin-left:5px; display:none;">Sale % Off</button></span>
+        <span><button id="btnDiscountSaleAmount" class="btn btn-success btn-lg" style="float:left; margin-left:5px; display:none;">Sale $ Off</button></span>
+        <span><button id="btnDiscountLineBack" class="btn btn-success btn-lg" style="float:left; margin-left:5px; display:none;">Back</button></span>
+        <span><button id="btnDiscountLinePercent" class="btn btn-success btn-lg" style="float:left; margin-left:5px; display:none;">Line % Off</button></span>
+        <span><button id="btnDiscountLineAmount" class="btn btn-success btn-lg" style="float:left; margin-left:5px; display:none;">Line $ Off</button></span>
+        <span><button id="btnDiscountInputBack" class="btn btn-success btn-lg" style="float:left; margin-left:5px; display:none;">Back</button></span>
+        <div>
+            <span id="DiscountLabel" style="float:left; padding: 13px 0; font-weight: bold; font-size: 150%; margin-left:10px; display:none;"></span>
+            <span><input id="DiscountInput" type="text" style="font-size:larger; float:left; padding: 10px 0; margin-left:5px; display:none;"></span>
+            <span><button id="btnDiscountApply" class="btn btn-success btn-lg" style="float:left; margin-left:5px; display:none;">Apply Discount</button></span>
+        </div>
+
+
+    </div>
+
+
+    <div id="tendertab" class="tab-pane fade">
+        <br />
+
+        <div class="row">
+            <div class="col-xs-2">
+                <div class="input-group">
+                    @Html.DropDownListFor(m => m.SelectedTenderType, Model.tenderTypeSelectList, "Choose Tender...", new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-xs-1">
+                <div class="input-group">
+                    @Html.Label("Amount", "Amount")
+                </div>
+            </div>
+            <div class="col-xs-1">
+                <div class="input-group">
+                    @Html.TextBoxFor(m => m.TenderValue, Model.TenderValue, new { @class = "form-control", @id = "TenderValue", @autocomplete = "off" })
+                </div>
+            </div>
+            <div class="col-xs-1">
+                <div class="input-group">
+                    <button id="btnAddTender" value="Add" class="btn btn-primary">Add</button>
+                </div>
+            </div>
+        </div>
+
+        <br />
+
+        <div class="table-responsive">
+            <table id="tblTenderline" class="table table-bordered thead-dark">
+                <thead>
+                    <tr>
+                        <th style="display:none">TenderTypeID</th>
+                        <th style="text-align:left">Tender</th>
+                        <th style="text-align:right">Amount</th>
+                        <th style="display:none">ChangeGiven</th>
+                        <th style="display:none">Status</th>
+                    </tr>
+                </thead>
+                <tbody id="tblBodyTenderline"></tbody>
+            </table>
+        </div>
+        <p style="text-align: right; font-weight: bold; font-size: 150%;">Total: <span id="TotalLabelT">$0</span></p>
+        <p style="text-align: right; font-weight: bold; font-size: 150%;">Gst: <span id="TotalGstLabelT">$0</span></p>
+        <p style="text-align: right; font-weight: bold; font-size: 150%;">Paid: <span id="TotalTenderLabel">$0</span></p>
+        <p style="text-align: right; font-weight: bold; font-size: 150%;">Change: <span id="ChangeGivenLabel">$0</span></p>
+        <button id="btnVoidTender" class="btn btn-success btn-lg" style="float:left">Void Tender</button>
+        <span><button id="btnFinalise" class="btn btn-success btn-lg" style="float:right">Finalise</button></span>
+    </div>
+    </div>
+
+<br />
+<br />
+

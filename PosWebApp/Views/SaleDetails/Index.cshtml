@@ -1,0 +1,73 @@
+﻿@model PosWebApp.Models.SaleModel
+@{
+    ViewBag.Title = "Sale Details";
+}
+
+<h2>Sale Details - @Model.sales.First().SaleID</h2>
+
+<div class="table-responsive">
+    <table class="table table-striped table-bordered thead-dark">
+        <thead>
+            <tr>
+                <th style="text-align:left">Product</th>
+                <th style="text-align:right">Quantity</th>
+                <th style="text-align:right">Price</th>
+                <th style="text-align:right">Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var saleline in Model.sales.First().Salelines)
+            {
+            <tr>
+                <td style="text-align:left">
+                    @saleline.Product.Description
+                </td>
+                <td style="text-align:right">
+                    @saleline.Quantity
+                </td>
+                <td style="text-align:right">
+                    @saleline.Price.ToString("c2")
+                </td>
+                <td style="text-align:right">
+                    @saleline.LineAmount.ToString("c2")
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<br/>
+
+<div class="table-responsive">
+    <table class="table table-striped table-bordered thead-dark">
+        <thead>
+            <tr>
+                <th style="text-align:left">Tender</th>
+                <th style="text-align:left">Amount</th>
+                <th style="text-align:right">Change</th>
+                <th style="text-align:right">Cash Out</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var tenderline in Model.sales.First().Tenderlines)
+            {
+                <tr>
+                    <td style="text-align:left">
+                        @tenderline.TenderType.Description
+                    </td>
+                    <td style="text-align:left">
+                        $@tenderline.TenderValue
+                    </td>
+                    <td style="text-align:right">
+                        $@tenderline.ChangeGiven
+                    </td>
+                    <td style="text-align:right">
+                        $@tenderline.CashOut
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

@@ -1,0 +1,21 @@
+﻿@using DataAccess;
+@model PosWebApp.Models.SaleModel
+@{
+    ViewBag.Title = "Home";
+}
+
+<img class="img-fluid" src="~/Images/magichat.jpg" alt="magic hat" style="width:256px;height:256px;">
+<span style="font-size:30px">Experience the magic of the DMCRetail journey</span>
+@using (Html.BeginForm("Index", "Sell", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-row text-center">
+        <div class="col-12">
+            <button id="btnSell" type="submit" class="btn btn-success btn-lg">Start selling!</button>
+        </div>
+    </div>
+       
+}
+
+<br/>
+<br />

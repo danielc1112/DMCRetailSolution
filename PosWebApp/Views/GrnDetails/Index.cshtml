@@ -1,0 +1,39 @@
+﻿@model PosWebApp.Models.ReceiveModel
+@{
+    ViewBag.Title = "Received Details";
+}
+
+<h2>Received Details - @Model.grns.FirstOrDefault().GrnID</h2>
+
+<div class="table-responsive">
+    <table class="table table-striped table-bordered thead-dark">
+        <thead>
+            <tr>
+                <th style="text-align:left">Product</th>
+                <th style="text-align:right">Quantity</th>
+                <th style="text-align:right">Cost</th>
+                <th style="text-align:right">Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var grnline in Model.grns.First().Grnlines)
+            {
+            <tr>
+                <td style="text-align:left">
+                    @grnline.Product.Description
+                </td>
+                <td style="text-align:right">
+                    @grnline.Quantity
+                </td>
+                <td style="text-align:right">
+                    @grnline.Cost.ToString("c2")
+                </td>
+                <td style="text-align:right">
+                    @grnline.LineAmount.ToString("c2")
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
