@@ -1,0 +1,17 @@
+C:\Users\dcamp\source\repos\DMCRetail\PosWebService\obj\Debug\PosWebService.csprojResolveAssemblyReference.cache
+C:\Users\dcamp\source\repos\DMCRetail\PosWebService\obj\Debug\PosWebService.csproj.CoreCompileInputs.cache
+C:\Users\dcamp\source\repos\DMCRetail\PosWebService\bin\Debug\PosWebService.dll.config
+C:\Users\dcamp\source\repos\DMCRetail\PosWebService\bin\Debug\PosWebService.dll
+C:\Users\dcamp\source\repos\DMCRetail\PosWebService\bin\Debug\PosWebService.pdb
+C:\Users\dcamp\source\repos\DMCRetail\PosWebService\bin\Debug\DataAccess.dll
+C:\Users\dcamp\source\repos\DMCRetail\PosWebService\bin\Debug\EntityFramework.dll
+C:\Users\dcamp\source\repos\DMCRetail\PosWebService\bin\Debug\DataAccess.pdb
+C:\Users\dcamp\source\repos\DMCRetail\PosWebService\bin\Debug\DataAccess.dll.config
+C:\Users\dcamp\source\repos\DMCRetail\PosWebService\bin\Debug\EntityFramework.xml
+C:\Users\dcamp\source\repos\DMCRetail\PosWebService\obj\Debug\PosWebService.dll
+C:\Users\dcamp\source\repos\DMCRetail\PosWebService\obj\Debug\PosWebService.pdb
+C:\Users\dcamp\source\repos\DMCRetail\PosWebService\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\dcamp\source\repos\DMCRetail\PosWebService\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\dcamp\source\repos\DMCRetail\PosWebService\bin\Debug\GalaSoft.MvvmLight.dll
+C:\Users\dcamp\source\repos\DMCRetail\PosWebService\bin\Debug\GalaSoft.MvvmLight.pdb
+C:\Users\dcamp\source\repos\DMCRetail\PosWebService\bin\Debug\GalaSoft.MvvmLight.xml
