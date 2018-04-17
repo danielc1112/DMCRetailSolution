@@ -5,38 +5,58 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:HOApp.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="500" d:DesignWidth="500">
     <Grid>
         <ComboBox HorizontalAlignment="Left" 
                   Margin="66,10,0,0" 
                   VerticalAlignment="Top" 
-                  Width="171" 
+                  Width="140" 
                   RenderTransformOrigin="0.465,-0.409" 
                   Height="26"
                   ItemsSource="{Binding Path=Suppliers}"   
                   SelectedItem="{Binding Path=SelectedSupplier}"  
-                  DisplayMemberPath="Description" />
-        <!--<ListView Name="dg" 
+                  DisplayMemberPath="TheEntity.Description" />
+
+        <GroupBox Header="Delivery" HorizontalAlignment="Right" Height="110" Margin="0,0,10,0" VerticalAlignment="Top" Width="164">
+            <Grid HorizontalAlignment="Left" Height="84" VerticalAlignment="Top"
+                  Width="150">
+                <ComboBox HorizontalAlignment="Left" 
+                  Margin="32,0,0,0" 
+                  VerticalAlignment="Top" 
+                  Width="108" 
+                  Height="24"
+                  ItemsSource="{Binding Path=Stores}"   
+                  SelectedItem="{Binding Path=SelectedStore}"  
+                  DisplayMemberPath="TheEntity.Description" />
+                <DatePicker SelectedDate="{Binding PO.TransactionTime}" HorizontalAlignment="Left" Margin="32,36,0,0" VerticalAlignment="Top" Height="24" Width="108"/>
+            </Grid>
+        </GroupBox>
+        <ListView Name="dg" 
                   VerticalAlignment="Bottom"
-                  ItemsSource="{Binding POlines}"
-                  SelectedItem="{Binding SelectedPO, Mode=TwoWay}"
-                  SelectedIndex="0" Height="137" Margin="0,0,0,37">
+                  ItemsSource="{Binding POlines, Mode=TwoWay}"
+                  SelectedItem="{Binding SelectedPOLine, Mode=TwoWay}"
+                  SelectedIndex="0" Height="329" Margin="0,0,0,37">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="ProductID" DisplayMemberBinding="{Binding TheEntity.ProductID}" Width="100"/>
+                    <GridViewColumn Header="ProductID" DisplayMemberBinding="{Binding TheEntity.ProductID}" Width="100">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <ComboBox HorizontalAlignment="Left" 
+                                          ItemsSource="{Binding Path=Products}"   
+                                          SelectedItem="{Binding Path=SelectedProduct, Mode=TwoWay}" 
+                                          DisplayMemberPath="TheEntity.Description" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                     <GridViewColumn Header="Description" DisplayMemberBinding="{Binding TheEntity.Product.Description}" Width="100"/>
                     <GridViewColumn Header="Cost" DisplayMemberBinding="{Binding TheEntity.Product.Cost}" Width="100"/>
                     <GridViewColumn Header="Quantity" DisplayMemberBinding="{Binding TheEntity.Quantity}" Width="100"/>
                     <GridViewColumn Header="Amount" DisplayMemberBinding="{Binding TheEntity.LineAmount}" Width="100"/>
                 </GridView>
             </ListView.View>
-        </ListView>-->
+        </ListView>
         <Label Content="Supplier" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <Label Content="Net Amount" HorizontalAlignment="Left" Margin="194,278,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.132,-0.107" Height="12" Width="43"/>
-        <Label Content="Gst Amount" HorizontalAlignment="Left" Margin="242,290,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.172,-0.65"/>
-        <Label Content="Total" HorizontalAlignment="Left" Margin="254,278,0,0" VerticalAlignment="Top"/>
-        <GroupBox Header="Delivery" HorizontalAlignment="Left" Height="100" Margin="161,10,0,0" VerticalAlignment="Top" Width="131">
-            <Label Content="Due" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.081,-2.472"/>
-        </GroupBox>
+        <Button Content="+" HorizontalAlignment="Left" Margin="22,106,0,0" VerticalAlignment="Top" Width="21" Height="18" Click="Insert_Click"/>
+        <Button Content="Approve" HorizontalAlignment="Left" Margin="251,468,0,0" VerticalAlignment="Top" Width="75" Height="22" Click="Approve_Click"/>
     </Grid>
 </UserControl>

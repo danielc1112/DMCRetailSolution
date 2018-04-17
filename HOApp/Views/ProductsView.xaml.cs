@@ -36,5 +36,16 @@ namespace HOApp.Views
                 spv.Show();
             }
         }
+
+        private void QtyOnHandHistory_Click(object sender, RoutedEventArgs e)
+        {
+            ProductsViewModel pvm = (ProductsViewModel)this.DataContext;
+            if (pvm.GotSomethingSelected())
+            {
+                StoreProductTransView spv = new StoreProductTransView(pvm.SelectedProduct.TheEntity);
+                spv.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                spv.Show();
+            }
+        }
     }
 }
