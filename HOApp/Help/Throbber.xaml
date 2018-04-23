@@ -38,17 +38,7 @@
                 </ContentControl.RenderTransform>
                 <ContentControl.Template>
                     <ControlTemplate TargetType="{x:Type ContentControl}">
-                        <ed:Arc x:Name="arc" ArcThickness="8" 
-                        EndAngle="380" Height="40" Stretch="None"
-                        StartAngle="200" UseLayoutRounding="False" Width="40" 
-                        RenderTransformOrigin="0.5,0.5">
-                            <ed:Arc.Fill>
-                                <LinearGradientBrush EndPoint="0.5,.85" StartPoint="0.5,0">
-                                    <GradientStop Color="CadetBlue"/>
-                                    <GradientStop Color="White" Offset="1"/>
-                                </LinearGradientBrush>
-                            </ed:Arc.Fill>
-                        </ed:Arc>
+
                     </ControlTemplate>
                 </ContentControl.Template>
             </ContentControl>

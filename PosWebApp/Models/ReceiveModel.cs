@@ -30,7 +30,7 @@ namespace PosWebApp.Models
         {
             foreach (Product prod in db.Products.ToList())
             {
-                prodSelectList.Add(new SelectListItem(){ Value = prod.ProductID.ToString(), Text = prod.Description});
+                prodSelectList.Add(new SelectListItem(){ Value = prod.Id.ToString(), Text = prod.Description});
             }
         }
 
@@ -40,7 +40,7 @@ namespace PosWebApp.Models
             {
                 supplierSelectList.Add(new SelectListItem()
                 {
-                    Value = supplier.SupplierID.ToString(),
+                    Value = supplier.Id.ToString(),
                     Text = supplier.Description
                 });
             }
@@ -51,7 +51,7 @@ namespace PosWebApp.Models
             if (GrnID == null)
                 grns.AddRange(db.Grns.ToList());
             else
-                grns.AddRange(db.Grns.Where(x => x.GrnID == GrnID).ToList());
+                grns.AddRange(db.Grns.Where(x => x.Id == GrnID).ToList());
         }
 
         public GrnlineView AddGrnline(string ProductId, string Quantity)
@@ -59,7 +59,7 @@ namespace PosWebApp.Models
             GrnlineView gl = new GrnlineView();
             gl.ProductID = Convert.ToInt32(ProductId);
             gl.Quantity = Convert.ToInt32(Quantity);
-            Product prod = db.Products.ToList().Single<Product>(x => x.ProductID == gl.ProductID);
+            Product prod = db.Products.ToList().Single<Product>(x => x.Id == gl.ProductID);
             gl.Description = prod.Description;
             gl.Cost = prod.Cost;
             gl.LineAmount = gl.Quantity * gl.Cost;

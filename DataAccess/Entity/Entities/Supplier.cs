@@ -2,10 +2,8 @@
 
 namespace DataAccess.Entity.Entities
 {
-    public class Supplier : BaseEntity
+    public class Supplier : KeyedEntity
     {
-        [Key]
-        public int SupplierID { get; set; }
         [Required]
         public string Description { get; set; }
         public string Phone { get; set; }

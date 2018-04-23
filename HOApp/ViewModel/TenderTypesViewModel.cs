@@ -157,12 +157,12 @@ namespace HOApp.ViewModel
         }
         private async void ReFocusRow(bool withReload = true)
         {
-            int id = EditVM.TheEntity.TenderTypeID;
+            int id = EditVM.TheEntity.Id;
             SelectedTenderType = null;
             await db.Entry(EditVM.TheEntity).ReloadAsync();
             await Application.Current.Dispatcher.InvokeAsync(new Action(() =>
             {
-                SelectedTenderType = TenderTypes.Where(e => e.TheEntity.TenderTypeID == id).FirstOrDefault();
+                SelectedTenderType = TenderTypes.Where(e => e.TheEntity.Id == id).FirstOrDefault();
                 SelectedTenderType.TheEntity = SelectedTenderType.TheEntity;
                 SelectedTenderType.TheEntity.ClearErrors();
             }), DispatcherPriority.ContextIdle);

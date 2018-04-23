@@ -9,36 +9,28 @@ namespace DataAccess
     {
         protected override void Seed(RetailDbContext context)
         {
-            //Addresses
-            IList<Address> defaultAddresses = new List<Address>();
+            context.Addresses.AddRange(new [] {
+                new Address() { Id = 1, AddressLine1 = "1 Smith St", AddressLine2 = "", Suburb = "Northcote", Postcode = "3070", State = "VIC", Iso3CountryCode = "AUS" },
+                new Address() { Id = 2, AddressLine1 = "2 Smith St", AddressLine2 = "", Suburb = "Northcote", Postcode = "3070", State = "VIC", Iso3CountryCode = "AUS" },
+                new Address() { Id = 3, AddressLine1 = "3 Smith St", AddressLine2 = "", Suburb = "Northcote", Postcode = "3070", State = "VIC", Iso3CountryCode = "AUS" },
+                new Address() { Id = 4, AddressLine1 = "4 Smith St", AddressLine2 = "", Suburb = "Northcote", Postcode = "3070", State = "VIC", Iso3CountryCode = "AUS" },
+                new Address() { Id = 5, AddressLine1 = "5 Smith St", AddressLine2 = "", Suburb = "Northcote", Postcode = "3070", State = "VIC", Iso3CountryCode = "AUS" },
+                new Address() { Id = 6, AddressLine1 = "6 Smith St", AddressLine2 = "", Suburb = "Northcote", Postcode = "3070", State = "VIC", Iso3CountryCode = "AUS" },
+                new Address() { Id = 7, AddressLine1 = "7 Smith St", AddressLine2 = "", Suburb = "Northcote", Postcode = "3070", State = "VIC", Iso3CountryCode = "AUS" },
+                new Address() { Id = 8, AddressLine1 = "8 Smith St", AddressLine2 = "", Suburb = "Northcote", Postcode = "3070", State = "VIC", Iso3CountryCode = "AUS" }
+            });
 
-            defaultAddresses.Add(new Address() { AddressID = 1, AddressLine1 = "1 Smith St", AddressLine2 = "", Suburb = "Northcote", Postcode = "3070", State = "VIC", Iso3CountryCode = "AUS" });
-            defaultAddresses.Add(new Address() { AddressID = 2, AddressLine1 = "2 Smith St", AddressLine2 = "", Suburb = "Northcote", Postcode = "3070", State = "VIC", Iso3CountryCode = "AUS" });
-            defaultAddresses.Add(new Address() { AddressID = 3, AddressLine1 = "3 Smith St", AddressLine2 = "", Suburb = "Northcote", Postcode = "3070", State = "VIC", Iso3CountryCode = "AUS" });
-            defaultAddresses.Add(new Address() { AddressID = 4, AddressLine1 = "4 Smith St", AddressLine2 = "", Suburb = "Northcote", Postcode = "3070", State = "VIC", Iso3CountryCode = "AUS" });
-            defaultAddresses.Add(new Address() { AddressID = 5, AddressLine1 = "5 Smith St", AddressLine2 = "", Suburb = "Northcote", Postcode = "3070", State = "VIC", Iso3CountryCode = "AUS" });
-            defaultAddresses.Add(new Address() { AddressID = 6, AddressLine1 = "6 Smith St", AddressLine2 = "", Suburb = "Northcote", Postcode = "3070", State = "VIC", Iso3CountryCode = "AUS" });
-            defaultAddresses.Add(new Address() { AddressID = 7, AddressLine1 = "7 Smith St", AddressLine2 = "", Suburb = "Northcote", Postcode = "3070", State = "VIC", Iso3CountryCode = "AUS" });
-            defaultAddresses.Add(new Address() { AddressID = 8, AddressLine1 = "8 Smith St", AddressLine2 = "", Suburb = "Northcote", Postcode = "3070", State = "VIC", Iso3CountryCode = "AUS" });
-
-            foreach (Address std in defaultAddresses)
-                context.Addresses.Add(std);
-
-            //Suppliers
-            IList<Supplier> defaultSuppliers = new List<Supplier>();
-
-            defaultSuppliers.Add(new Supplier() { SupplierID = 1, Description = "Supplier 1", AddressID = 3 });
-            defaultSuppliers.Add(new Supplier() { SupplierID = 2, Description = "Supplier 2", AddressID = 4 });
-
-            foreach (Supplier std in defaultSuppliers)
-                context.Suppliers.Add(std);
+            context.Suppliers.AddRange(new [] {
+                new Supplier() { Id = 1, Description = "Supplier 1", AddressID = 3 },
+                new Supplier() { Id = 2, Description = "Supplier 2", AddressID = 4 }
+            });
 
             //3 products
             IList<Product> defaultProducts = new List<Product>();
 
-            defaultProducts.Add(new Product() { ProductID = 1, Description = "red sandles", Price = 12.5f, Cost = 6.25f, SupplierID =1 });
-            defaultProducts.Add(new Product() { ProductID = 2, Description = "blue shirt", Price = 8f, Cost = 4f, SupplierID = 1 });
-            defaultProducts.Add(new Product() { ProductID = 3, Description = "blue sandles", Price = 30f, Cost = 15f, SupplierID = 1 });
+            defaultProducts.Add(new Product() { Id = 1, Description = "red sandles", Price = 12.5f, Cost = 6.25f, SupplierID =1 });
+            defaultProducts.Add(new Product() { Id = 2, Description = "blue shirt", Price = 8f, Cost = 4f, SupplierID = 1 });
+            defaultProducts.Add(new Product() { Id = 3, Description = "blue sandles", Price = 30f, Cost = 15f, SupplierID = 1 });
 
             foreach (Product std in defaultProducts)
                 context.Products.Add(std);            
@@ -46,8 +38,8 @@ namespace DataAccess
             //Bank Accounts
             IList<BankAccount> defaultBankAccounts = new List<BankAccount>();
 
-            defaultBankAccounts.Add(new BankAccount() { BankAccountID = 1, BankName = "Test Account 1", Bsb = "123456", AccountNo = "123456789", AccountName = "Main account" });
-            defaultBankAccounts.Add(new BankAccount() { BankAccountID = 1, BankName = "Test Account 1", Bsb = "654321", AccountNo = "987654321", AccountName = "Paypal account" });
+            defaultBankAccounts.Add(new BankAccount() { Id = 1, BankName = "Test Account 1", Bsb = "123456", AccountNo = "123456789", AccountName = "Main account" });
+            defaultBankAccounts.Add(new BankAccount() { Id = 1, BankName = "Test Account 1", Bsb = "654321", AccountNo = "987654321", AccountName = "Paypal account" });
 
             foreach (BankAccount std in defaultBankAccounts)
                 context.BankAccounts.Add(std);            
@@ -55,8 +47,8 @@ namespace DataAccess
             //Stores
             IList<Store> defaultStores = new List<Store>();
 
-            defaultStores.Add(new Store() { StoreID = 1, Description = "Store 1", Active = true, AddressID = 1 });
-            defaultStores.Add(new Store() { StoreID = 2, Description = "Store 2", Active = true, AddressID = 2 });
+            defaultStores.Add(new Store() { Id = 1, Description = "Store 1", Active = true, AddressID = 1 });
+            defaultStores.Add(new Store() { Id = 2, Description = "Store 2", Active = true, AddressID = 2 });
 
             foreach (Store std in defaultStores)
                 context.Stores.Add(std);
@@ -64,10 +56,10 @@ namespace DataAccess
             //Registers
             IList<Register> defaultRegisters = new List<Register>();
 
-            defaultRegisters.Add(new Register() { RegisterID = 1, StoreID = 1, RegisterStatus = "A", PrinterID = "1", EFTType = "1", EftEnabled = true });
-            defaultRegisters.Add(new Register() { RegisterID = 2, StoreID = 1, RegisterStatus = "A", PrinterID = "1", EFTType = "2", EftEnabled = true });
-            defaultRegisters.Add(new Register() { RegisterID = 3, StoreID = 2, RegisterStatus = "A", PrinterID = "1", EFTType = "1", EftEnabled = true });
-            defaultRegisters.Add(new Register() { RegisterID = 4, StoreID = 2, RegisterStatus = "A", PrinterID = "1", EFTType = "2", EftEnabled = true });
+            defaultRegisters.Add(new Register() { Id = 1, StoreID = 1, RegisterStatus = "A", PrinterID = "1", EFTType = "1", EftEnabled = true });
+            defaultRegisters.Add(new Register() { Id = 2, StoreID = 1, RegisterStatus = "A", PrinterID = "1", EFTType = "2", EftEnabled = true });
+            defaultRegisters.Add(new Register() { Id = 3, StoreID = 2, RegisterStatus = "A", PrinterID = "1", EFTType = "1", EftEnabled = true });
+            defaultRegisters.Add(new Register() { Id = 4, StoreID = 2, RegisterStatus = "A", PrinterID = "1", EFTType = "2", EftEnabled = true });
 
             foreach (Register std in defaultRegisters)
                 context.Registers.Add(std);            
@@ -75,8 +67,8 @@ namespace DataAccess
             //Customers
             IList<Customer> defaultCustomers = new List<Customer>();
 
-            defaultCustomers.Add(new Customer() { CustomerID = 1, CustomerType = "P", Status = "A", Title = "Mr", FirstName = "John", LastName = "Smith", Phone = "123456789", Mobile = "0123456789", Email = "jsmith@gmail.com", AddressID = 5 });
-            defaultCustomers.Add(new Customer() { CustomerID = 2, CustomerType = "P", Status = "A", Title = "Ms", FirstName = "Samantha", LastName = "Jones", Phone = "987654321", Mobile = "0987654321", Email = "sjones@gmail.com", AddressID = 6 });
+            defaultCustomers.Add(new Customer() { Id = 1, CustomerType = "P", Status = "A", Title = "Mr", FirstName = "John", LastName = "Smith", Phone = "123456789", Mobile = "0123456789", Email = "jsmith@gmail.com", AddressID = 5 });
+            defaultCustomers.Add(new Customer() { Id = 2, CustomerType = "P", Status = "A", Title = "Ms", FirstName = "Samantha", LastName = "Jones", Phone = "987654321", Mobile = "0987654321", Email = "sjones@gmail.com", AddressID = 6 });
 
             foreach (Customer std in defaultCustomers)
                 context.Customers.Add(std);
@@ -84,8 +76,8 @@ namespace DataAccess
             //Users
             IList<User> defaultUsers = new List<User>();
 
-            defaultUsers.Add(new User() { UserID = 1, UserCode = "user1", Password = "password1", Active = true });
-            defaultUsers.Add(new User() { UserID = 2, UserCode = "user2", Password = "password2", Active = true });
+            defaultUsers.Add(new User() { Id = 1, UserCode = "user1", Password = "password1", Active = true });
+            defaultUsers.Add(new User() { Id = 2, UserCode = "user2", Password = "password2", Active = true });
 
             foreach (User std in defaultUsers)
                 context.Users.Add(std);
@@ -93,8 +85,8 @@ namespace DataAccess
             //Employees
             IList<Employee> defaultEmployees = new List<Employee>();
 
-            defaultEmployees.Add(new Employee() { EmployeeID = 1, Status = "A", TaxFileNumber = "123456789", UserID = 1, EmployeeTitle = "Manager", FirstName = "Roger", LastName = "Kennedy", Phone = "123456789", Mobile = "0123456789", Email = "rkennedy@gmail.com", AddressID = 7 });
-            defaultEmployees.Add(new Employee() { EmployeeID = 2, Status = "A", TaxFileNumber = "987654321", UserID = 2, EmployeeTitle = "Casual", FirstName = "Jason", LastName = "Cobain", Phone = "987654321", Mobile = "0987654321", Email = "jcobain@gmail.com", AddressID = 8 });
+            defaultEmployees.Add(new Employee() { Id = 1, Status = "A", TaxFileNumber = "123456789", UserID = 1, EmployeeTitle = "Manager", FirstName = "Roger", LastName = "Kennedy", Phone = "123456789", Mobile = "0123456789", Email = "rkennedy@gmail.com", AddressID = 7 });
+            defaultEmployees.Add(new Employee() { Id = 2, Status = "A", TaxFileNumber = "987654321", UserID = 2, EmployeeTitle = "Casual", FirstName = "Jason", LastName = "Cobain", Phone = "987654321", Mobile = "0987654321", Email = "jcobain@gmail.com", AddressID = 8 });
 
             foreach (Employee std in defaultEmployees)
                 context.Employees.Add(std);
@@ -102,8 +94,8 @@ namespace DataAccess
             //Printers
             IList<Printer> defaultPrinters = new List<Printer>();
 
-            defaultPrinters.Add(new Printer() { PrinterID = 1, Description = "Epson", Active = true, ReceiptPrintWidth = 80, SupportsGraphics = true, SupportsBarcodes = false });
-            defaultPrinters.Add(new Printer() { PrinterID = 2, Description = "Star", Active = true, ReceiptPrintWidth = 80, SupportsGraphics = true, SupportsBarcodes = false });
+            defaultPrinters.Add(new Printer() { Id = 1, Description = "Epson", Active = true, ReceiptPrintWidth = 80, SupportsGraphics = true, SupportsBarcodes = false });
+            defaultPrinters.Add(new Printer() { Id = 2, Description = "Star", Active = true, ReceiptPrintWidth = 80, SupportsGraphics = true, SupportsBarcodes = false });
 
             foreach (Printer std in defaultPrinters)
                 context.Printers.Add(std);
@@ -111,8 +103,8 @@ namespace DataAccess
             //TenderTypes
             IList<TenderType> defaultTenderTypes = new List<TenderType>();
 
-            defaultTenderTypes.Add(new TenderType() { TenderTypeID = 1, Description = "Cash", Active = true, DisplaySequence = 1, ChangeGiven = true });
-            defaultTenderTypes.Add(new TenderType() { TenderTypeID = 2, Description = "EFT", Active = true, DisplaySequence = 2, ChangeGiven = false });
+            defaultTenderTypes.Add(new TenderType() { Id = 1, Description = "Cash", Active = true, DisplaySequence = 1, ChangeGiven = true });
+            defaultTenderTypes.Add(new TenderType() { Id = 2, Description = "EFT", Active = true, DisplaySequence = 2, ChangeGiven = false });
 
             foreach (TenderType std in defaultTenderTypes)
                 context.TenderTypes.Add(std);

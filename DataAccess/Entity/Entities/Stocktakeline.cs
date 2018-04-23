@@ -3,10 +3,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DataAccess.Entity.Entities
 {
-    public class Stocktakeline : BaseEntity
+    public class Stocktakeline : KeyedEntity
     {
-        [Key]
-        public int StocktakelineID { get; set; }
         [Required]
         [Index]
         public int StocktakeID { get; set; } //Automatically a foreign key

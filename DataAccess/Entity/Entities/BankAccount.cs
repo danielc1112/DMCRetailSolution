@@ -2,10 +2,8 @@
 
 namespace DataAccess.Entity.Entities
 {
-    public class BankAccount : BaseEntity
+    public class BankAccount : KeyedEntity
     {
-        [Key]
-        public int BankAccountID { get; set; }
         [Required]
         public string BankName { get; set; }
         [Required]

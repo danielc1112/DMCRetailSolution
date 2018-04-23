@@ -5,10 +5,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DataAccess.Entity.Entities
 {
-    public class PO : BaseEntity
+    public class PO : KeyedEntity
     {
-        [Key]
-        public int POID { get; set; }
         [Required]
         public int SupplierID { get; set; }
         [Required]
@@ -18,8 +16,8 @@ namespace DataAccess.Entity.Entities
         public float NetAmount { get; set; }
         [Required]
         [Index]
-        public DateTime TransactionTime { get; set; }
-        public int EmployeeID { get; set; }
+        public DateTime TransactionTime { get; set; } = DateTime.UtcNow;
+        public int EmployeeID { get; set; } = 1;
 
         public virtual ICollection<POline> POlines { get; set; }
         public virtual Employee Employee { get; set; }

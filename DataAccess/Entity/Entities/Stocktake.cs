@@ -4,10 +4,8 @@ using System.Collections.Generic;
 
 namespace DataAccess.Entity.Entities
 {
-    public class Stocktake : BaseEntity
+    public class Stocktake : KeyedEntity
     {
-        [Key]
-        public int StocktakeID { get; set; }
         [Required]
         public string Description { get; set; }
         [Required]

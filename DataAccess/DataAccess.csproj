@@ -67,6 +67,7 @@
     <Compile Include="DBContexts.cs" />
     <Compile Include="DBRepository.cs" />
     <Compile Include="Entity\AnError.cs" />
+    <Compile Include="Entity\KeyedEntity.cs" />
     <Compile Include="Entity\BaseEntity.cs" />
     <Compile Include="Entity\Entities\Address.cs" />
     <Compile Include="Entity\Entities\BankAccount.cs" />

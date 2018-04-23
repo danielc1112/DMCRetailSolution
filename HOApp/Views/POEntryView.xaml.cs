@@ -2,6 +2,8 @@
 using HOApp.ViewModel;
 using System.Windows;
 using HOApp.Model;
+using DataAccess;
+using System.Linq;
 
 namespace HOApp.Views
 {
@@ -13,8 +15,10 @@ namespace HOApp.Views
         public POEntryView()
         {
             InitializeComponent();
-            this.DataContext = new POEntryViewModel();
+            DataContext = new POEntryViewModel();
         }
+
+        private POEntryViewModel ViewModel => (POEntryViewModel)DataContext;
 
         //Rather than a button to insert, it would be better if the grid started with an empty line
         //and inside the productID column cells, there was a product dropdown.
@@ -25,21 +29,23 @@ namespace HOApp.Views
 
         private void Insert_Click(object sender, RoutedEventArgs e)
         {
-            POEntryViewModel pvm = (POEntryViewModel)this.DataContext;
-            POlineVM poLine = new POlineVM();
+            System.Console.WriteLine("Clicked");
 
-            //insert row into grid
-
-            pvm.PO.POlines.Add(poLine);
+            ViewModel
+                .PO
+                .AddProductOrderLine()
+                .SetProduct(ViewModel.SelectedProduct);
         }
 
         private void Approve_Click(object sender, RoutedEventArgs e)
         {
-            POEntryViewModel pvm = (POEntryViewModel)this.DataContext;
+            using (var db = new RetailDbContext())
+            {
+                db.Pos.Add(ViewModel.PO.TheEntity);
+                db.SaveChanges();
+            }
 
-            //SaveChanges is an entity framework function which actually commits what's in memory (PO/POLine)
-            //to the DB
-            //pvm.db.SaveChanges();
+            DataContext = new POEntryViewModel();
         }
     }
 }

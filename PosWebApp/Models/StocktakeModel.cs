@@ -28,7 +28,7 @@ namespace PosWebApp.Models
         {
             foreach (Product prod in db.Products.ToList())
             {
-                prodSelectList.Add(new SelectListItem() { Value = prod.ProductID.ToString(), Text = prod.Description });
+                prodSelectList.Add(new SelectListItem() { Value = prod.Id.ToString(), Text = prod.Description });
             }
         }
 
@@ -37,7 +37,7 @@ namespace PosWebApp.Models
             if (StocktakeID == null)
                 stocktakes.AddRange(db.Stocktakes.ToList());
             else
-                stocktakes.AddRange(db.Stocktakes.Where(x => x.StocktakeID == StocktakeID).ToList());
+                stocktakes.AddRange(db.Stocktakes.Where(x => x.Id == StocktakeID).ToList());
         }
 
         public StocktakelineView AddStocktakeline(string ProductId, string Quantity)
@@ -45,7 +45,7 @@ namespace PosWebApp.Models
             StocktakelineView stl = new StocktakelineView();
             stl.ProductID = Convert.ToInt32(ProductId);
             stl.CountedQty = Convert.ToInt32(Quantity);
-            Product prod = db.Products.ToList().Single<Product>(x => x.ProductID == stl.ProductID);
+            Product prod = db.Products.ToList().Single<Product>(x => x.Id == stl.ProductID);
             stl.Description = prod.Description;
             return stl;
         }

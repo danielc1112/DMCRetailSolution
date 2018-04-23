@@ -43,7 +43,7 @@ namespace PosWebApp.Models
             {
                 prodSelectList.Add(new SelectListItem()
                 {
-                    Value = prod.ProductID.ToString(),
+                    Value = prod.Id.ToString(),
                     Text = prod.Description
                 });
             }
@@ -55,7 +55,7 @@ namespace PosWebApp.Models
             {
                 customerSelectList.Add(new SelectListItem()
                 {
-                    Value = customer.CustomerID.ToString(),
+                    Value = customer.Id.ToString(),
                     Text = customer.DisplayName
                 });
             }
@@ -67,7 +67,7 @@ namespace PosWebApp.Models
             {
                 tenderTypeSelectList.Add(new SelectListItem()
                 {
-                    Value = tenderType.TenderTypeID.ToString(),
+                    Value = tenderType.Id.ToString(),
                     Text = tenderType.Description
                 });
             }
@@ -78,7 +78,7 @@ namespace PosWebApp.Models
             if(SaleID == null)
                sales.AddRange(db.Sales.ToList());
             else
-               sales.AddRange(db.Sales.Where(x => x.SaleID == SaleID).ToList());
+               sales.AddRange(db.Sales.Where(x => x.Id == SaleID).ToList());
         }
 
         public SalelineView AddSaleline(string ProductId, string Quantity)
@@ -86,7 +86,7 @@ namespace PosWebApp.Models
             SalelineView sl = new SalelineView();
             sl.ProductID = Convert.ToInt32(ProductId);
             sl.Quantity = Convert.ToInt32(Quantity);
-            Product prod = db.Products.ToList().Single<Product>(x => x.ProductID == sl.ProductID);
+            Product prod = db.Products.ToList().Single<Product>(x => x.Id == sl.ProductID);
             sl.Description = prod.Description;
             sl.Price = prod.Price;
             sl.EffPrice = prod.Price;
@@ -100,7 +100,7 @@ namespace PosWebApp.Models
         public bool CanTenderTypeGiveChange(int tenderTypeID)
         {
             if (tenderTypeID == 0) return true;
-            TenderType tenderType = db.TenderTypes.ToList().Single<TenderType>(x => x.TenderTypeID == tenderTypeID);
+            TenderType tenderType = db.TenderTypes.ToList().Single<TenderType>(x => x.Id == tenderTypeID);
             return tenderType.ChangeGiven;
         }
 
@@ -114,7 +114,7 @@ namespace PosWebApp.Models
             tl.TenderTypeID = Convert.ToInt32(TenderTypeId);
             tl.Status = "A";
 
-            TenderType tenderType = db.TenderTypes.ToList().Single<TenderType>(x => x.TenderTypeID == tl.TenderTypeID);
+            TenderType tenderType = db.TenderTypes.ToList().Single<TenderType>(x => x.Id == tl.TenderTypeID);
             tl.Description = tenderType.Description;
             tl.TenderValue = float.Parse(TenderValue, CultureInfo.InvariantCulture.NumberFormat);
 

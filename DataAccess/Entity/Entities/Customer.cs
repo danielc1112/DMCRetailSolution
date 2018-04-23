@@ -3,10 +3,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DataAccess.Entity.Entities
 {
-    public class Customer : BaseEntity
+    public class Customer : KeyedEntity
     {
-        [Key]
-        public int CustomerID { get; set; }
         public string CustomerType { get; set; }
         public string Status { get; set; }
         public string Title { get; set; }
