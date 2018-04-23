@@ -157,12 +157,12 @@ namespace HOApp.ViewModel
         }
         private async void ReFocusRow(bool withReload = true)
         {
-            int id = EditVM.TheEntity.BankAccountID;
+            int id = EditVM.TheEntity.Id;
             SelectedBankAccount = null;
             await db.Entry(EditVM.TheEntity).ReloadAsync();
             await Application.Current.Dispatcher.InvokeAsync(new Action(() =>
             {
-                SelectedBankAccount = BankAccounts.Where(e => e.TheEntity.BankAccountID == id).FirstOrDefault();
+                SelectedBankAccount = BankAccounts.Where(e => e.TheEntity.Id == id).FirstOrDefault();
                 SelectedBankAccount.TheEntity = SelectedBankAccount.TheEntity;
                 SelectedBankAccount.TheEntity.ClearErrors();
             }), DispatcherPriority.ContextIdle);

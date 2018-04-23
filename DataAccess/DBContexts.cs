@@ -7,7 +7,7 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 namespace DataAccess
 {
     public class RetailDbContext : DbContext
-    {        
+    {
         //Entities
         public DbSet<Product> Products { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
@@ -33,10 +33,14 @@ namespace DataAccess
         public DbSet<StoreProductTran> StoreProductTrans { get; set; }
         public DbSet<Stocktake> Stocktakes { get; set; }
         public DbSet<Stocktakeline> Stocktakelines { get; set; }
+        public DbSet<PO> Pos { get; set; }
+        public DbSet<POline> Polines { get; set; }
 
-        public RetailDbContext() : base((new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString)).InitialCatalog)
+        private static CreateDatabaseIfNotExists<RetailDbContext> Initializer { get; } = new MyDBInitializer();
+
+        public RetailDbContext() : base("Data Source=6800K;Initial Catalog = HODB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
         {
-            Database.SetInitializer(new MyDBInitializer());
+            Database.SetInitializer(Initializer);
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

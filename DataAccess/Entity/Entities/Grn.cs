@@ -5,10 +5,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DataAccess.Entity.Entities
 {
-    public class Grn : BaseEntity
+    public class Grn : KeyedEntity
     {
-        [Key]
-        public int GrnID { get; set; }
         [Required]
         public int StoreID { get; set; }
         [Required]

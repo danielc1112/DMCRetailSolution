@@ -3,10 +3,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DataAccess.Entity.Entities
 {
-    public class Grnline : BaseEntity
+    public class Grnline : KeyedEntity
     {
-        [Key]
-        public int GrnlineID { get; set; }
         [Required]
         [Index]
         public int GrnID { get; set; } //Automatically a foreign key

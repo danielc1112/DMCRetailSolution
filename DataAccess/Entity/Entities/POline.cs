@@ -3,10 +3,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DataAccess.Entity.Entities
 {
-    public class POline : BaseEntity
+    public class POline : KeyedEntity
     {
-        [Key]
-        public int POlineID { get; set; }
         [Required]
         [Index]
         public int POID { get; set; } //Automatically a foreign key
@@ -16,8 +14,9 @@ namespace DataAccess.Entity.Entities
         [DataType(DataType.Currency)]
         public float Cost { get; set; }
         public int Quantity { get; set; }
+
         [DataType(DataType.Currency)]
-        public float LineAmount { get; set; }
+        public float LineAmount => Cost * Quantity;
 
         public virtual Product Product { get; set; }
     }

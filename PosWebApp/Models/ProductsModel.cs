@@ -34,7 +34,7 @@ namespace PosWebApp.Models
             foreach(Product prod in prods)
             {
                 StoreProduct sp = (from s in db.StoreProducts
-                                   where (s.StoreID == 1) && (s.ProductID == prod.ProductID)
+                                   where (s.StoreID == 1) && (s.ProductID == prod.Id)
                                    select s).SingleOrDefault();
 
                 prod.StoreProduct = sp;

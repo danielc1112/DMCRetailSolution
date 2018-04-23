@@ -3,10 +3,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DataAccess.Entity.Entities
 {
-    public class Employee : BaseEntity
+    public class Employee : KeyedEntity
     {
-        [Key]
-        public int EmployeeID { get; set; }
         [Required]
         public string Status { get; set; }
         public string TaxFileNumber { get; set; }

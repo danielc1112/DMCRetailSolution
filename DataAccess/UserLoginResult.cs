@@ -34,7 +34,7 @@ namespace DataAccess
                 }
                 else
                 {
-                    UserID = user.UserID;
+                    UserID = user.Id;
                     if (user.Password != password)
                     {
                         ulResult = ULResult.IncorrectPassword;
@@ -50,7 +50,7 @@ namespace DataAccess
                         }
                         else
                         {
-                            EmployeeID = emp.EmployeeID;
+                            EmployeeID = emp.Id;
                             return true;
                         }
                     }

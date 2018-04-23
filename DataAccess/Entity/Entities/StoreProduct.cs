@@ -2,10 +2,8 @@
 
 namespace DataAccess.Entity.Entities
 {
-    public class StoreProduct : BaseEntity
+    public class StoreProduct : KeyedEntity
     {
-        [Key]
-        public int StoreProductID { get; set; }
         [Required]
         public int ProductID { get; set; }
         [Required]

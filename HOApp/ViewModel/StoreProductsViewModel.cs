@@ -29,14 +29,14 @@ namespace HOApp.ViewModel
                                      select s).ToList();
 
             List<StoreProduct> storeProducts = (from s in db.StoreProducts
-                                                where s.ProductID.Equals(prod.ProductID)
+                                                where s.ProductID.Equals(prod.Id)
                                                 select s).ToList();
             foreach (Store store in allStores)
             {
-                StoreProduct storeProduct = storeProducts.Find(s => s.StoreID == store.StoreID);
+                StoreProduct storeProduct = storeProducts.Find(s => s.StoreID == store.Id);
                 if (storeProduct == null)
                 {
-                    storeProduct = new StoreProduct() { StoreID = store.StoreID, ProductID = prod.ProductID, QtyOnHand = 0, Store = store };
+                    storeProduct = new StoreProduct() { StoreID = store.Id, ProductID = prod.Id, QtyOnHand = 0, Store = store };
                 }
                 _storeProducts.Add(new StoreProductVM { IsNew = false, TheEntity = storeProduct });
             }

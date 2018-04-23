@@ -65,7 +65,7 @@ namespace DataAccess
                     StoreProductTran storeProductTran = new StoreProductTran();
                     storeProductTran.ProductID = storeProduct.ProductID;
                     storeProductTran.DocumentType = "S";
-                    storeProductTran.DocumentID = sale.SaleID;
+                    storeProductTran.DocumentID = sale.Id;
                     storeProductTran.Quantity = sl.Quantity;
                     storeProductTran.EffectiveTime = sale.TransactionTime;
                     retailDbContext.StoreProductTrans.Add(storeProductTran);
@@ -99,7 +99,7 @@ namespace DataAccess
                     StoreProductTran storeProductTran = new StoreProductTran();
                     storeProductTran.ProductID = storeProduct.ProductID;
                     storeProductTran.DocumentType = "G";
-                    storeProductTran.DocumentID = grn.GrnID;
+                    storeProductTran.DocumentID = grn.Id;
                     storeProductTran.Quantity = gl.Quantity;
                     storeProductTran.EffectiveTime = grn.TransactionTime;
                     retailDbContext.StoreProductTrans.Add(storeProductTran);
@@ -137,7 +137,7 @@ namespace DataAccess
                     StoreProductTran storeProductTran = new StoreProductTran();
                     storeProductTran.ProductID = storeProduct.ProductID;
                     storeProductTran.DocumentType = "A";
-                    storeProductTran.DocumentID = st.StocktakeID;
+                    storeProductTran.DocumentID = st.Id;
                     storeProductTran.Quantity = stl.CountedQty - QtyBefore;
                     storeProductTran.EffectiveTime = st.TransactionTime;
                     retailDbContext.StoreProductTrans.Add(storeProductTran);

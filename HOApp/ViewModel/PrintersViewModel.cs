@@ -157,12 +157,12 @@ namespace HOApp.ViewModel
         }
         private async void ReFocusRow(bool withReload = true)
         {
-            int id = EditVM.TheEntity.PrinterID;
+            int id = EditVM.TheEntity.Id;
             SelectedPrinter = null;
             await db.Entry(EditVM.TheEntity).ReloadAsync();
             await Application.Current.Dispatcher.InvokeAsync(new Action(() =>
             {
-                SelectedPrinter = Printers.Where(e => e.TheEntity.PrinterID == id).FirstOrDefault();
+                SelectedPrinter = Printers.Where(e => e.TheEntity.Id == id).FirstOrDefault();
                 SelectedPrinter.TheEntity = SelectedPrinter.TheEntity;
                 SelectedPrinter.TheEntity.ClearErrors();
             }), DispatcherPriority.ContextIdle);

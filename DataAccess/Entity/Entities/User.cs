@@ -2,10 +2,8 @@
 
 namespace DataAccess.Entity.Entities
 {
-    public class User : BaseEntity
+    public class User : KeyedEntity
     {
-        [Key]
-        public int UserID { get; set; }
         [Required]
         public string UserCode { get; set; }
         [Required]

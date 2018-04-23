@@ -116,8 +116,8 @@ namespace HOApp.ViewModel
             UserMessage msg = new UserMessage();
             if (SelectedProduct != null)
             {
-                int NumSaleLines = NumberOfSaleLines(SelectedProduct.TheEntity.ProductID);
-                int NumGrnLines = NumberOfSaleLines(SelectedProduct.TheEntity.ProductID);
+                int NumSaleLines = NumberOfSaleLines(SelectedProduct.TheEntity.Id);
+                int NumGrnLines = NumberOfSaleLines(SelectedProduct.TheEntity.Id);
                 if ((NumSaleLines > 0) || (NumGrnLines > 0))
                 {
                     if (NumSaleLines > 0)
@@ -169,12 +169,12 @@ namespace HOApp.ViewModel
         }
         private async void ReFocusRow(bool withReload = true)
         {
-            int id = EditVM.TheEntity.ProductID;
+            int id = EditVM.TheEntity.Id;
             SelectedProduct = null;
             await db.Entry(EditVM.TheEntity).ReloadAsync();
             await Application.Current.Dispatcher.InvokeAsync(new Action(() =>
             {
-                SelectedProduct = Products.Where(e => e.TheEntity.ProductID == id).FirstOrDefault();
+                SelectedProduct = Products.Where(e => e.TheEntity.Id == id).FirstOrDefault();
                 SelectedProduct.TheEntity = SelectedProduct.TheEntity;
                 SelectedProduct.TheEntity.ClearErrors();
             }), DispatcherPriority.ContextIdle);
@@ -185,7 +185,7 @@ namespace HOApp.ViewModel
             var prod = db.Products.Find(ProdId);
             // Count how many SaleLines there are for the Product
             int linesCount = db.Salelines
-                               .Where(sl => sl.ProductID == prod.ProductID)
+                               .Where(sl => sl.ProductID == prod.Id)
                                .Count();
             return linesCount;
         }
@@ -195,7 +195,7 @@ namespace HOApp.ViewModel
             var prod = db.Products.Find(ProdId);
             // Count how many SaleLines there are for the Product
             int linesCount = db.Grnlines
-                               .Where(gl => gl.ProductID == prod.ProductID)
+                               .Where(gl => gl.ProductID == prod.Id)
                                .Count();
             return linesCount;
         }

@@ -55,7 +55,7 @@ namespace HOApp.ViewModel
             ObservableCollection<RegisterVM> _Registers = new ObservableCollection<RegisterVM>();
             List<Register> registers;
             registers = await (from p in db.Registers
-                                orderby p.RegisterID
+                                orderby p.Id
                                 select p).ToListAsync();
             foreach (Register entity in registers)
             {
@@ -147,12 +147,12 @@ namespace HOApp.ViewModel
         }
         private async void ReFocusRow(bool withReload = true)
         {
-            int id = EditVM.TheEntity.RegisterID;
+            int id = EditVM.TheEntity.Id;
             SelectedRegister = null;
             await db.Entry(EditVM.TheEntity).ReloadAsync();
             await Application.Current.Dispatcher.InvokeAsync(new Action(() =>
             {
-                SelectedRegister = Registers.Where(e => e.TheEntity.RegisterID == id).FirstOrDefault();
+                SelectedRegister = Registers.Where(e => e.TheEntity.Id == id).FirstOrDefault();
                 SelectedRegister.TheEntity = SelectedRegister.TheEntity;
                 SelectedRegister.TheEntity.ClearErrors();
             }), DispatcherPriority.ContextIdle);

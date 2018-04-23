@@ -2,10 +2,8 @@
 
 namespace DataAccess.Entity.Entities
 {
-    public class Printer : BaseEntity
+    public class Printer : KeyedEntity
     {
-        [Key]
-        public int PrinterID { get; set; }
         [Required]
         public string Description { get; set; }
         public bool Active { get; set; }
