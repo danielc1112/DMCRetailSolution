@@ -1,106 +1,129 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel;
 using System.Windows;
 using DataAccess;
-using DataAccess.Entity.Entities;
-using DataAccess.Help;
 using HOApp.Model;
+using System.Data.Entity;
 
 namespace HOApp.ViewModel
 {
-    class POEntryViewModel : DataVMBase
+    internal class POEntryViewModel : DataVMBase
     {
-        public RetailDbContext db = new RetailDbContext();
+        public POEntryViewModel() : base()
+        {
+            _selectableProducts = new List<ProductVM>();
+            PO = new POVM();
+            PropertyChanged += HandlePropertyChanged;
+        }
+
+        private void HandlePropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            switch (e.PropertyName)
+            {
+                case nameof(SelectedSupplier):
+                    {
+                        var suppliersId = _selectedSupplier?.TheEntity.SupplierID ?? -1;
+
+                        using (var db = new RetailDbContext())
+                        {
+                            _selectableProducts = db
+                                .Products
+                                .Where(product => product.SupplierID == suppliersId)
+                                .OrderBy(n => n.Description)
+                                .Select(n => new ProductVM { IsNew = false, TheEntity = n })
+                                .ToList();
+                        }
+
+                        RaisePropertyChanged(nameof(SelectableProducts));
+                        PO.SetSupplier(SelectedSupplier);
+                        RaisePropertyChanged(nameof(PO));
+                        break;
+                    }
+                case nameof(SelectedStore):
+                    {
+                        PO.SetStore(SelectedStore);
+                        RaisePropertyChanged(nameof(PO));
+                        break;
+                    }
+            }
+        }
 
         public POVM PO { get; set; }
+
         public ObservableCollection<SupplierVM> Suppliers { get; set; }
         public ObservableCollection<StoreVM> Stores { get; set; }
-        public ObservableCollection<ProductVM> Products { get; set; }
 
-        private SupplierVM selectedSupplier;
+        private SupplierVM _selectedSupplier;
+        private StoreVM _selectedStore;
+        private List<ProductVM> _selectableProducts;
+
         public SupplierVM SelectedSupplier
         {
-            get
-            {
-                return selectedSupplier;
-            }
+            get => _selectedSupplier;
             set
             {
-                selectedSupplier = value;
-                RaisePropertyChanged();
+                if (_selectedSupplier != value)
+                {
+                    _selectedSupplier = value;
+                    RaisePropertyChanged();
+                }
             }
         }
 
-        private StoreVM selectedStore;
         public StoreVM SelectedStore
         {
-            get
-            {
-                return selectedStore;
-            }
+            get => _selectedStore;
             set
             {
-                selectedStore = value;
-                RaisePropertyChanged();
+                if (_selectedStore != value)
+                {
+                    _selectedStore = value;
+                    RaisePropertyChanged();
+                }
             }
         }
 
-        public POEntryViewModel() : base() { }
+        public IReadOnlyList<ProductVM> SelectableProducts => _selectableProducts;
+
+        public ProductVM SelectedProduct { get; set; }
 
         protected async override void GetData(string filter = "")
         {
-            //TODO: The throbber in each screen works, but it's covered in the UI
             ThrobberVisible = Visibility.Visible;
 
-            //Supplier dropdown TODO: Should only look at active suppliers
-            ObservableCollection<SupplierVM> _suppliers = new ObservableCollection<SupplierVM>();
-            var suppliers = await (from s in db.Suppliers
-                                   orderby s.Description
-                                   select s).ToListAsync();
-            foreach (Supplier supplier in suppliers)
+            using (var db = new RetailDbContext())
             {
-                _suppliers.Add(new SupplierVM { IsNew = false, TheEntity = supplier });
-            }
-            Suppliers = _suppliers;
-            RaisePropertyChanged("Suppliers");
+                Suppliers = new ObservableCollection<SupplierVM>
+                (
+                    await db.Suppliers
+                    .OrderBy(n => n.Description)
+                    .Select(n => new SupplierVM { IsNew = false, TheEntity = n })
+                    .ToListAsync()
+                    .ConfigureAwait(false)
+                );
 
-            //Store dropdown TODO: Should only look at active stores
-            ObservableCollection<StoreVM> _stores = new ObservableCollection<StoreVM>();
-            var stores = await (from s in db.Stores
-                                   orderby s.Description
-                                   select s).ToListAsync();
-            foreach (Store store in stores)
-            {
-                _stores.Add(new StoreVM { IsNew = false, TheEntity = store });
+                Stores = new ObservableCollection<StoreVM>
+                (
+                    await db.Stores
+                    .OrderBy(n => n.Description)
+                    .Select(n => new StoreVM { IsNew = false, TheEntity = n })
+                    .ToListAsync()
+                    .ConfigureAwait(false)
+                );
             }
-            Stores = _stores;
-            RaisePropertyChanged("Stores");
 
-            //Product dropdown TODO: Should only look at products with an active status
-            ObservableCollection<ProductVM> _products = new ObservableCollection<ProductVM>();
-            var products = await (from s in db.Products
-                                orderby s.Description
-                                select s).ToListAsync();
-            foreach (Product product in products)
-            {
-                _products.Add(new ProductVM { IsNew = false, TheEntity = product });
-            }
-            Products = _products;
-            RaisePropertyChanged("Products");
+            RaisePropertyChanged(nameof(Suppliers));
+            RaisePropertyChanged(nameof(Stores));
 
             //Create new PO in memory TODO: Add it in memory to db.PO.Add()?? Yes, I think so
-            POVM _PO = new POVM();
-            PO = _PO;
-            RaisePropertyChanged("PO");
+            PO = new POVM();
+
+            RaisePropertyChanged(nameof(PO));
 
             ThrobberVisible = Visibility.Collapsed;
         }
-
-
     }
 }
