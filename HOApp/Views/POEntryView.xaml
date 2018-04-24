@@ -16,8 +16,18 @@
                   ItemsSource="{Binding Path=Suppliers}"   
                   SelectedItem="{Binding Path=SelectedSupplier}"  
                   DisplayMemberPath="TheEntity.Description" />
-
-        <GroupBox Header="Delivery" HorizontalAlignment="Right" Height="110" Margin="0,0,10,0" VerticalAlignment="Top" Width="164">
+        
+        <ComboBox HorizontalAlignment="Left" 
+                  Margin="66,108,0,0" 
+                  VerticalAlignment="Top" 
+                  Width="140" 
+                  RenderTransformOrigin="0.465,-0.409" 
+                  Height="26"
+                  ItemsSource="{Binding Path=SelectableProducts}"   
+                  SelectedItem="{Binding Path=SelectedProduct}"  
+                  DisplayMemberPath="TheEntity.Description" />
+        
+       <GroupBox Header="Delivery" HorizontalAlignment="Right" Height="110" Margin="0,0,10,0" VerticalAlignment="Top" Width="164">
             <Grid HorizontalAlignment="Left" Height="84" VerticalAlignment="Top"
                   Width="150">
                 <ComboBox HorizontalAlignment="Left" 
@@ -33,30 +43,28 @@
         </GroupBox>
         <ListView Name="dg" 
                   VerticalAlignment="Bottom"
-                  ItemsSource="{Binding POlines, Mode=TwoWay}"
+                  ItemsSource="{Binding PO.POlines, Mode=TwoWay}"
                   SelectedItem="{Binding SelectedPOLine, Mode=TwoWay}"
                   SelectedIndex="0" Height="329" Margin="0,0,0,37">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="ProductID" DisplayMemberBinding="{Binding TheEntity.ProductID}" Width="100">
+                    <GridViewColumn Header="ProductID" DisplayMemberBinding="{Binding TheEntity.ProductID}" Width="100"/>
+                    <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}" Width="100"/>
+                    <GridViewColumn Header="Cost" DisplayMemberBinding="{Binding Cost}" Width="100"/>
+                    <GridViewColumn Header="Quantity" Width="110">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <ComboBox HorizontalAlignment="Left" 
-                                          ItemsSource="{Binding Path=Products}"   
-                                          SelectedItem="{Binding Path=SelectedProduct, Mode=TwoWay}" 
-                                          DisplayMemberPath="TheEntity.Description" />
+                                <TextBox Text="{Binding Quantity, Mode=TwoWay}" Width="100"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="Description" DisplayMemberBinding="{Binding TheEntity.Product.Description}" Width="100"/>
-                    <GridViewColumn Header="Cost" DisplayMemberBinding="{Binding TheEntity.Product.Cost}" Width="100"/>
-                    <GridViewColumn Header="Quantity" DisplayMemberBinding="{Binding TheEntity.Quantity}" Width="100"/>
-                    <GridViewColumn Header="Amount" DisplayMemberBinding="{Binding TheEntity.LineAmount}" Width="100"/>
+                    <GridViewColumn Header="Amount" DisplayMemberBinding="{Binding LineAmount}" Width="100"/>
                 </GridView>
             </ListView.View>
         </ListView>
         <Label Content="Supplier" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <Button Content="+" HorizontalAlignment="Left" Margin="22,106,0,0" VerticalAlignment="Top" Width="21" Height="18" Click="Insert_Click"/>
+        <Button Content="+" HorizontalAlignment="Left" Margin="211,111,0,0" VerticalAlignment="Top" Width="21" Height="18" Click="Insert_Click"/>
         <Button Content="Approve" HorizontalAlignment="Left" Margin="251,468,0,0" VerticalAlignment="Top" Width="75" Height="22" Click="Approve_Click"/>
+        <Label Content="Product" HorizontalAlignment="Left" Margin="10,108,0,0" VerticalAlignment="Top"/>
     </Grid>
 </UserControl>

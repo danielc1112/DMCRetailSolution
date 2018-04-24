@@ -42,7 +42,7 @@ namespace HOApp.Views
             ProductsViewModel pvm = (ProductsViewModel)this.DataContext;
             if (pvm.GotSomethingSelected())
             {
-                StoreProductTransView spv = new StoreProductTransView(pvm.SelectedProduct.TheEntity);
+                StoreProductsView spv = new StoreProductsView(pvm.SelectedProduct.TheEntity);
                 spv.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                 spv.Show();
             }

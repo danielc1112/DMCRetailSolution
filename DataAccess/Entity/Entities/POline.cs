@@ -17,7 +17,7 @@ namespace DataAccess.Entity.Entities
         public float Cost { get; set; }
         public int Quantity { get; set; }
         [DataType(DataType.Currency)]
-        public float LineAmount { get; set; }
+        public float LineAmount => Cost * Quantity;
 
         public virtual Product Product { get; set; }
     }

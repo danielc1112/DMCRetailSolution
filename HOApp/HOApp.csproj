@@ -13,6 +13,7 @@
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -103,15 +104,15 @@
     <Compile Include="Model\EmployeeVM.cs" />
     <Compile Include="Model\GrnlineVM.cs" />
     <Compile Include="Model\GrnVM.cs" />
-    <Compile Include="Model\POline.cs" />
+    <Compile Include="Model\POlineVM.cs" />
     <Compile Include="Model\POVM.cs" />
     <Compile Include="Model\PrinterVM.cs" />
     <Compile Include="Model\ProductVM.cs" />
     <Compile Include="Model\RegisterVM.cs" />
     <Compile Include="Model\SalelineVM.cs" />
     <Compile Include="Model\SaleVM.cs" />
-    <Compile Include="Model\StoreDM.cs" />
     <Compile Include="Model\StoreProductVM.cs" />
+    <Compile Include="Model\StoreVM.cs" />
     <Compile Include="Model\SupplierVM.cs" />
     <Compile Include="Model\TenderTypeVM.cs" />
     <Compile Include="Model\UserVM.cs" />
